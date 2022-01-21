@@ -1,0 +1,89 @@
+﻿@model GestaoPedidosNotificacao.UI.Entities.Pedido
+
+@{
+    ViewBag.Title = "Excluir pedido";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h3>Tem certeza de que deseja excluir isso?</h3>
+<div>
+    <h4>Pedido</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Finalidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Finalidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataFactura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataFactura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataPagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataPagamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Entidade.Denoninacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Entidade.Denoninacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Utilizador.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Utilizador.Nome)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-primary" /> 
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-danger" })
+        </div>
+    }
+</div>

@@ -1,0 +1,55 @@
+﻿@model GestaoPedidosNotificacao.UI.Entities.Entidade
+
+@{
+    ViewBag.Title = "Excluir Entidade";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h3>Tem certeza de que deseja excluir isso?</h3>
+    <div>
+        <h4>Entidade</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Denoninacao)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Denoninacao)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NumeroProcesso)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NumeroProcesso)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DataEntidade)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DataEntidade)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.EntidadeTipo.Nome)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.EntidadeTipo.Nome)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Voltar", "Index")
+            </div>
+        }
+    </div>

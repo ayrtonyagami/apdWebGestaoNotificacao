@@ -1,0 +1,52 @@
+﻿@model IEnumerable<GestaoPedidosNotificacao.UI.Entities.ServicoProduto>
+
+@{
+    ViewBag.Title = "Serviços e Produtos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Novo Serviço", "Create",null,new { @clasee= "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+        <td>
+            <a href="@Url.Action("Details","ServicoProdutoes", new { id=item.Id })" class="btn btn-primary btn-circle">
+                <i class="fas fa-search"></i>
+            </a>
+            <a href="@Url.Action("Edit","ServicoProdutoes", new { id=item.Id })" class="btn btn-success btn-circle">
+                <i class="fas fa-edit"></i>
+            </a>
+            <a href="@Url.Action("Delete","ServicoProdutoes", new { id=item.Id })" class="btn btn-danger btn-circle">
+                <i class="fas fa-trash"></i>
+            </a>
+
+
+        </td>
+    </tr>
+}
+
+</table>

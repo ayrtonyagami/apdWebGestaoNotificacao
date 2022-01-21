@@ -1,0 +1,50 @@
+﻿@model GestaoPedidosNotificacao.UI.Entities.Entidade
+
+@{
+    ViewBag.Title = "Entidade";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div>
+        <h4>Entidade</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Denoninacao)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Denoninacao)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.NumeroProcesso)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NumeroProcesso)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DataEntidade)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DataEntidade)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.EntidadeTipo.Nome)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.EntidadeTipo.Nome)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Voltar", "Index")
+    </p>
+

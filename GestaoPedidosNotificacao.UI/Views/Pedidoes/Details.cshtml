@@ -1,0 +1,82 @@
+﻿@model GestaoPedidosNotificacao.UI.Entities.Pedido
+
+@{
+    ViewBag.Title = "Pedido";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <h4>Pedido</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Finalidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Finalidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataFactura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataFactura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataPagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataPagamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Entidade.Denoninacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Entidade.Denoninacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Utilizador.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Utilizador.Nome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" }) 
+    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-danger" })
+</p>
