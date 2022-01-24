@@ -42,3 +42,47 @@ c:\users\ayrton.antonio\documents\visual studio 2015\Projects\GestaoPedidosNotif
 c:\users\ayrton.antonio\documents\visual studio 2015\Projects\GestaoPedidosNotificacao\GestaoPedidosNotificacao.UI\obj\Debug\GestaoPedidosNotificacao.UI.csprojResolveAssemblyReference.cache
 c:\users\ayrton.antonio\documents\visual studio 2015\Projects\GestaoPedidosNotificacao\GestaoPedidosNotificacao.UI\obj\Debug\GestaoPedidosNotificacao.UI.dll
 c:\users\ayrton.antonio\documents\visual studio 2015\Projects\GestaoPedidosNotificacao\GestaoPedidosNotificacao.UI\obj\Debug\GestaoPedidosNotificacao.UI.pdb
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\roslyn\csc.exe
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\roslyn\vbc.exe
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\roslyn\VBCSCompiler.exe
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\GestaoPedidosNotificacao.UI.dll.config
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\GestaoPedidosNotificacao.UI.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\GestaoPedidosNotificacao.UI.pdb
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\Antlr3.Runtime.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\EntityFramework.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\EntityFramework.SqlServer.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\Newtonsoft.Json.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\System.Web.Helpers.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\System.Web.Mvc.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\System.Web.Optimization.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\System.Web.Razor.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\System.Web.WebPages.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\System.Web.WebPages.Razor.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\WebGrease.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\EntityFramework.xml
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\EntityFramework.SqlServer.xml
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\System.Web.Helpers.xml
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\System.Web.Mvc.xml
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\System.Web.Optimization.xml
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\System.Web.Razor.xml
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\System.Web.WebPages.xml
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\System.Web.WebPages.Razor.xml
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\Antlr3.Runtime.pdb
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\Newtonsoft.Json.xml
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\obj\Debug\GestaoPedidosNotificacao.UI.csprojResolveAssemblyReference.cache
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\obj\Debug\GestaoPedidosNotificacao.UI.dll
+C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\obj\Debug\GestaoPedidosNotificacao.UI.pdb
