@@ -11,7 +11,8 @@ namespace GestaoPedidosNotificacao.UI.Entities
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Entidade
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,9 +22,17 @@ namespace GestaoPedidosNotificacao.UI.Entities
         }
     
         public int Id { get; set; }
+
+        [Display(Name = "Designação")]
         public string Denoninacao { get; set; }
+
+        [Display(Name = "Nº Processo")]
         public string NumeroProcesso { get; set; }
+
+        [Display(Name = "Tipo")]
         public Nullable<int> EntidadeTipoId { get; set; }
+
+        [Display(Name = "Data de Cadastro")]
         public Nullable<System.DateTime> DataEntidade { get; set; }
     
         public virtual EntidadeTipo EntidadeTipo { get; set; }

@@ -281,6 +281,8 @@
     <Content Include="Views\ServicoProdutoes\Edit.cshtml" />
     <Content Include="Views\ServicoProdutoes\Index.cshtml" />
     <Content Include="Views\Conta\Login.cshtml" />
+    <Content Include="Views\Shared\_LogoutModal.cshtml" />
+    <Content Include="Views\Shared\_TopbarNavbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

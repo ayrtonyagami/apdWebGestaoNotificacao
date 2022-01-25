@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -9,6 +10,10 @@ namespace GestaoPedidosNotificacao.UI.Entities
     {
         public int TempoFactura { get; set; }
         public int TempoPagamento { get; set; }
+
+        [Display(Name = "Finalidade (Serviço)")]
+        public int ServicoId { get; set; }
+
 
         private void CalcularTempo()
         {

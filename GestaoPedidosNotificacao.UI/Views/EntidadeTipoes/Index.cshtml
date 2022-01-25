@@ -1,14 +1,12 @@
 ﻿@model IEnumerable<GestaoPedidosNotificacao.UI.Entities.EntidadeTipo>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Tipos de Entidades";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Novo Tipo", "Create",null, new { @class="btn btn-primary" })
 </p>
 <table class="table">
     <tr>
@@ -24,9 +22,15 @@
             @Html.DisplayFor(modelItem => item.Nome)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            <a href="@Url.Action("Details","EntidadeTipoes", new { id=item.Id })" class="btn btn-primary btn-circle">
+                <i class="fas fa-search"></i>
+            </a>
+            <a href="@Url.Action("Edit","EntidadeTipoes", new { id=item.Id }))" class="btn btn-success btn-circle">
+                <i class="fas fa-edit"></i>
+            </a>
+            <a href="@Url.Action("Delete","EntidadeTipoes", new { id=item.Id })" class="btn btn-danger btn-circle">
+                <i class="fas fa-trash"></i>
+            </a>
         </td>
     </tr>
 }

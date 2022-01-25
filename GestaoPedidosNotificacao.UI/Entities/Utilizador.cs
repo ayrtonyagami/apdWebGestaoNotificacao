@@ -11,7 +11,8 @@ namespace GestaoPedidosNotificacao.UI.Entities
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Utilizador
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,11 +23,23 @@ namespace GestaoPedidosNotificacao.UI.Entities
         }
     
         public int Id { get; set; }
+
+        [Display(Name = "Nome do Utilizador")]
         public string Nome { get; set; }
+
+        [Display(Name = "Senha")]
         public string Senha { get; set; }
+
+        [Display(Name = "E-mail")]
         public string Email { get; set; }
+
+        [Display(Name = "Função")]
         public string Funcao { get; set; }
+
+        [Display(Name = "Actiovo?")]
         public Nullable<bool> IsActive { get; set; }
+
+        [Display(Name = "Ultima Modificação")]
         public Nullable<System.DateTime> DataModificacao { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

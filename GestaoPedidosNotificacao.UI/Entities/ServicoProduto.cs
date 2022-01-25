@@ -11,7 +11,8 @@ namespace GestaoPedidosNotificacao.UI.Entities
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class ServicoProduto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,11 +22,23 @@ namespace GestaoPedidosNotificacao.UI.Entities
         }
     
         public int Id { get; set; }
+
+        [Display(Name = "Nome do Serviço")]
         public string Nome { get; set; }
+
+        [Display(Name = "Descrição")]
         public string Descricao { get; set; }
+
+        [Display(Name = "Qtd")]
         public Nullable<decimal> Quantidade { get; set; }
+
+        [Display(Name = "Valor")]
         public Nullable<decimal> Valor { get; set; }
+
+        [Display(Name = "Última Modificação")]
         public Nullable<System.DateTime> DataModificacao { get; set; }
+
+        [Display(Name = "É um produto?")]
         public Nullable<bool> IsProduto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

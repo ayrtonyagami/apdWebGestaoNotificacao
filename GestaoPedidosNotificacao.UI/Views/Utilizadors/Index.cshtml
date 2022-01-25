@@ -8,7 +8,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Novo Utilizador", "Create",null, new { })
+    @Html.ActionLink("Novo Utilizador", "Create",null, new { @class = "btn btn-primary" })
 </p>
 <table class="table">
     <tr>
@@ -54,9 +54,16 @@
             @Html.DisplayFor(modelItem => item.DataModificacao)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            <a href="@Url.Action("Details","Utilizadors", new { id=item.Id })" class="btn btn-primary btn-circle">
+                <i class="fas fa-search"></i>
+            </a>
+            <a href="@Url.Action("Edit","Utilizadors", new { id=item.Id }))" class="btn btn-success btn-circle">
+                <i class="fas fa-edit"></i>
+            </a>
+            <a href="@Url.Action("Delete","Utilizadors", new { id=item.Id })" class="btn btn-danger btn-circle">
+                <i class="fas fa-trash"></i>
+            </a>
+
         </td>
     </tr>
 }

@@ -39,9 +39,9 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         // GET: Pedidoes/Create
         public ActionResult Create()
         {
-            ViewBag.EntidadeId = new SelectList(db.Entidades, "Id", "Denoninacao");
-            ViewBag.EstadoId = new SelectList(db.Status, "Id", "Descricao");
-            ViewBag.UtilizadorId = new SelectList(db.Utilizadors, "Id", "Nome");
+
+            FillListViewBag(null);
+
             return View();
         }
 
@@ -59,9 +59,8 @@ namespace GestaoPedidosNotificacao.UI.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.EntidadeId = new SelectList(db.Entidades, "Id", "Denoninacao", pedido.EntidadeId);
-            ViewBag.EstadoId = new SelectList(db.Status, "Id", "Descricao", pedido.EstadoId);
-            ViewBag.UtilizadorId = new SelectList(db.Utilizadors, "Id", "Nome", pedido.UtilizadorId);
+            FillListViewBag(pedido);
+
             return View(pedido);
         }
 
@@ -77,9 +76,9 @@ namespace GestaoPedidosNotificacao.UI.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.EntidadeId = new SelectList(db.Entidades, "Id", "Denoninacao", pedido.EntidadeId);
-            ViewBag.EstadoId = new SelectList(db.Status, "Id", "Descricao", pedido.EstadoId);
-            ViewBag.UtilizadorId = new SelectList(db.Utilizadors, "Id", "Nome", pedido.UtilizadorId);
+
+            FillListViewBag(pedido);
+
             return View(pedido);
         }
 
@@ -96,9 +95,9 @@ namespace GestaoPedidosNotificacao.UI.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.EntidadeId = new SelectList(db.Entidades, "Id", "Denoninacao", pedido.EntidadeId);
-            ViewBag.EstadoId = new SelectList(db.Status, "Id", "Descricao", pedido.EstadoId);
-            ViewBag.UtilizadorId = new SelectList(db.Utilizadors, "Id", "Nome", pedido.UtilizadorId);
+
+            FillListViewBag(pedido);
+
             return View(pedido);
         }
 
@@ -135,6 +134,33 @@ namespace GestaoPedidosNotificacao.UI.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public void FillListViewBag(Pedido pedido)
+        {
+
+            var liServico = db.ServicoProdutoes.Select(x => new
+            {
+                Id = x.Id,
+                Finalidade = x.Valor + " AKz -" +  x.Nome
+            });
+
+            if(pedido == null)
+            {
+                ViewBag.EntidadeId = new SelectList(db.Entidades, "Id", "Denoninacao");
+                ViewBag.EstadoId = new SelectList(db.Status, "Id", "Descricao");
+                ViewBag.UtilizadorId = new SelectList(db.Utilizadors, "Id", "Nome");
+                ViewBag.ServicoId = new SelectList(liServico, "Id", "Finalidade");
+
+                return;
+            }
+
+            ViewBag.EntidadeId = new SelectList(db.Entidades, "Id", "Denoninacao", pedido.EntidadeId);
+            ViewBag.EstadoId = new SelectList(db.Status, "Id", "Descricao", pedido.EstadoId);
+            ViewBag.UtilizadorId = new SelectList(db.Utilizadors, "Id", "Nome", pedido.UtilizadorId);
+            ViewBag.ServicoId = new SelectList(liServico, "Id", "Finalidade",pedido.ServicoId);
+
+            return;
         }
     }
 }
