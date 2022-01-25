@@ -11,57 +11,33 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Entidade.Denoninacao)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Finalidade)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Valor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Observacao)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DataFactura)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DataPagamento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Entidade.Denoninacao)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Status.Descricao)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Utilizador.Nome)
-        </th>
-        <th></th>
+        <th width="160"></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.Entidade.Denoninacao)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Finalidade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Observacao)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DataFactura)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DataPagamento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Entidade.Denoninacao)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Status.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Utilizador.Nome)
         </td>
         <td>
             <a href="@Url.Action("Details","Pedidoes", new { id=item.Id })" class="btn btn-primary btn-circle">
