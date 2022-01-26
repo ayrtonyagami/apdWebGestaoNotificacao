@@ -23,6 +23,7 @@
     <EntitySetMapping Name="Pedidos">
       <EntityTypeMapping TypeName="GestaoPedidosNotificacaoDBModel.Pedido">
         <MappingFragment StoreEntitySet="Pedidos">
+          <ScalarProperty Name="ServicoId" ColumnName="ServicoId" />
           <ScalarProperty Name="UtilizadorId" ColumnName="UtilizadorId" />
           <ScalarProperty Name="DataPagamento" ColumnName="DataPagamento" />
           <ScalarProperty Name="DataFactura" ColumnName="DataFactura" />
@@ -64,6 +65,7 @@
     <EntitySetMapping Name="Status">
       <EntityTypeMapping TypeName="GestaoPedidosNotificacaoDBModel.Status">
         <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="Cor" ColumnName="Cor" />
           <ScalarProperty Name="Descricao" ColumnName="Descricao" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
@@ -79,16 +81,6 @@
           <ScalarProperty Name="Senha" ColumnName="Senha" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
           <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PedidoServicoes">
-      <EntityTypeMapping TypeName="GestaoPedidosNotificacaoDBModel.PedidoServico">
-        <MappingFragment StoreEntitySet="PedidoServico">
-          <ScalarProperty Name="Valor" ColumnName="Valor" />
-          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
-          <ScalarProperty Name="ServicoId" ColumnName="ServicoId" />
-          <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

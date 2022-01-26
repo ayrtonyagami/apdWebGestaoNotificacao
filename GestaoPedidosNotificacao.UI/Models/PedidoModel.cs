@@ -14,8 +14,6 @@ namespace GestaoPedidosNotificacao.UI.Entities
         [Display(Name = "Tempo de Pagamento (dias)")]
         public int TempoPagamento { get; set; }
 
-        [Display(Name = "Finalidade (Serviço)")]
-        public int ServicoId { get; set; }
 
 
         public void CalcularTempo()

@@ -14,7 +14,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="varchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="Pedidos">
@@ -30,16 +30,7 @@
     <Property Name="DataFactura" Type="datetime" />
     <Property Name="DataPagamento" Type="datetime" />
     <Property Name="UtilizadorId" Type="int" />
-  </EntityType>
-  <EntityType Name="PedidoServico">
-    <Key>
-      <PropertyRef Name="PedidoId" />
-      <PropertyRef Name="ServicoId" />
-    </Key>
-    <Property Name="PedidoId" Type="int" Nullable="false" />
-    <Property Name="ServicoId" Type="int" Nullable="false" />
-    <Property Name="Quantidade" Type="decimal" Precision="10" Scale="2" />
-    <Property Name="Valor" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="ServicoId" Type="int" />
   </EntityType>
   <EntityType Name="PedidosHistorico">
     <Key>
@@ -58,8 +49,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="varchar" MaxLength="50" />
-    <Property Name="Descricao" Type="varchar" MaxLength="150" />
+    <Property Name="Nome" Type="varchar" MaxLength="250" />
+    <Property Name="Descricao" Type="varchar" MaxLength="250" />
     <Property Name="Quantidade" Type="decimal" Precision="10" Scale="2" />
     <Property Name="Valor" Type="decimal" Precision="10" Scale="2" />
     <Property Name="DataModificacao" Type="datetime" />
@@ -71,6 +62,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descricao" Type="varchar" MaxLength="50" />
+    <Property Name="Cor" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="Utilizador">
     <Key>
@@ -108,6 +100,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Pedidos_ServicoProduto">
+    <End Role="ServicoProduto" Type="Self.ServicoProduto" Multiplicity="0..1" />
+    <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServicoProduto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pedidos">
+        <PropertyRef Name="ServicoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Pedidos_Status">
     <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
     <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="*" />
@@ -129,30 +133,6 @@
       </Principal>
       <Dependent Role="Pedidos">
         <PropertyRef Name="UtilizadorId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PedidoServico_Pedidos">
-    <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="1" />
-    <End Role="PedidoServico" Type="Self.PedidoServico" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Pedidos">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PedidoServico">
-        <PropertyRef Name="PedidoId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PedidoServico_ServicoProduto">
-    <End Role="ServicoProduto" Type="Self.ServicoProduto" Multiplicity="1" />
-    <End Role="PedidoServico" Type="Self.PedidoServico" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ServicoProduto">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PedidoServico">
-        <PropertyRef Name="ServicoId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -184,7 +164,6 @@
     <EntitySet Name="Entidade" EntityType="Self.Entidade" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EntidadeTipo" EntityType="Self.EntidadeTipo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pedidos" EntityType="Self.Pedidos" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PedidoServico" EntityType="Self.PedidoServico" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PedidosHistorico" EntityType="Self.PedidosHistorico" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ServicoProduto" EntityType="Self.ServicoProduto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
@@ -197,6 +176,10 @@
       <End Role="Entidade" EntitySet="Entidade" />
       <End Role="Pedidos" EntitySet="Pedidos" />
     </AssociationSet>
+    <AssociationSet Name="FK_Pedidos_ServicoProduto" Association="Self.FK_Pedidos_ServicoProduto">
+      <End Role="ServicoProduto" EntitySet="ServicoProduto" />
+      <End Role="Pedidos" EntitySet="Pedidos" />
+    </AssociationSet>
     <AssociationSet Name="FK_Pedidos_Status" Association="Self.FK_Pedidos_Status">
       <End Role="Status" EntitySet="Status" />
       <End Role="Pedidos" EntitySet="Pedidos" />
@@ -204,14 +187,6 @@
     <AssociationSet Name="FK_Pedidos_Utilizador" Association="Self.FK_Pedidos_Utilizador">
       <End Role="Utilizador" EntitySet="Utilizador" />
       <End Role="Pedidos" EntitySet="Pedidos" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PedidoServico_Pedidos" Association="Self.FK_PedidoServico_Pedidos">
-      <End Role="Pedidos" EntitySet="Pedidos" />
-      <End Role="PedidoServico" EntitySet="PedidoServico" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PedidoServico_ServicoProduto" Association="Self.FK_PedidoServico_ServicoProduto">
-      <End Role="ServicoProduto" EntitySet="ServicoProduto" />
-      <End Role="PedidoServico" EntitySet="PedidoServico" />
     </AssociationSet>
     <AssociationSet Name="FK_PedidosHistorico_Pedidos" Association="Self.FK_PedidosHistorico_Pedidos">
       <End Role="Pedidos" EntitySet="Pedidos" />

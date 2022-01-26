@@ -22,9 +22,11 @@ namespace GestaoPedidosNotificacao.UI.Entities
         }
     
         public int Id { get; set; }
-
         [Display(Name = "Status")]
         public string Descricao { get; set; }
+
+        [Display(Name = "Cor")]
+        public string Cor { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pedido> Pedidos { get; set; }

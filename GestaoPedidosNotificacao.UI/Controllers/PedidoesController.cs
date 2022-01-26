@@ -51,10 +51,15 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Finalidade,EntidadeId,Valor,EstadoId,Observacao,DataFactura,DataPagamento,UtilizadorId")] Pedido pedido)
+        public ActionResult Create([Bind(Include = "Id,ServicoId,EntidadeId,EstadoId,Observacao,DataFactura,DataPagamento,UtilizadorId")] Pedido pedido)
         {
             if (ModelState.IsValid)
             {
+                var servico = db.ServicoProdutoes.Find(pedido.ServicoId);
+
+                pedido.Finalidade = servico.Nome;
+                pedido.Valor = servico.Valor;
+
                 db.Pedidos.Add(pedido);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -88,10 +93,15 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Finalidade,EntidadeId,Valor,EstadoId,Observacao,DataFactura,DataPagamento,UtilizadorId")] Pedido pedido)
+        public ActionResult Edit([Bind(Include = "Id,ServicoId,EntidadeId,EstadoId,Observacao,DataFactura,DataPagamento,UtilizadorId")] Pedido pedido)
         {
             if (ModelState.IsValid)
             {
+                var servico = db.ServicoProdutoes.Find(pedido.ServicoId);
+
+                pedido.Finalidade = servico.Nome;
+                pedido.Valor = servico.Valor;
+
                 db.Entry(pedido).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

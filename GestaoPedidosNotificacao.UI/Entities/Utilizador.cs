@@ -23,7 +23,6 @@ namespace GestaoPedidosNotificacao.UI.Entities
         }
     
         public int Id { get; set; }
-
         [Display(Name = "Nome do Utilizador")]
         public string Nome { get; set; }
 

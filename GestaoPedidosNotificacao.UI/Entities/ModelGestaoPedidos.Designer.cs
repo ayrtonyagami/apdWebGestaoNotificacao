@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'c:\users\ayrton.antonio\documents\visual studio 2015\Projects\GestaoPedidosNotificacao\GestaoPedidosNotificacao.UI\Entities\ModelGestaoPedidos.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\Entities\ModelGestaoPedidos.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

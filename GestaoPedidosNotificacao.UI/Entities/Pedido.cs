@@ -18,10 +18,9 @@ namespace GestaoPedidosNotificacao.UI.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Pedido()
         {
-            this.PedidoServicoes = new HashSet<PedidoServico>();
             this.PedidosHistoricoes = new HashSet<PedidosHistorico>();
         }
-    
+
         public int Id { get; set; }
 
         [Display(Name = "Finalidade")]
@@ -48,13 +47,15 @@ namespace GestaoPedidosNotificacao.UI.Entities
 
         [Display(Name = "Utilizador")]
         public Nullable<int> UtilizadorId { get; set; }
+
+        [Display(Name = "Finalidade (Serviço)")]
+        public Nullable<int> ServicoId { get; set; }
     
         public virtual Entidade Entidade { get; set; }
         public virtual Status Status { get; set; }
         public virtual Utilizador Utilizador { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PedidoServico> PedidoServicoes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PedidosHistorico> PedidosHistoricoes { get; set; }
+        public virtual ServicoProduto ServicoProduto { get; set; }
     }
 }

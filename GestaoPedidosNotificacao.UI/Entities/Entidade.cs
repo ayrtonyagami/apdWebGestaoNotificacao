@@ -20,7 +20,7 @@ namespace GestaoPedidosNotificacao.UI.Entities
         {
             this.Pedidos = new HashSet<Pedido>();
         }
-    
+
         public int Id { get; set; }
 
         [Display(Name = "Designação")]
@@ -34,7 +34,7 @@ namespace GestaoPedidosNotificacao.UI.Entities
 
         [Display(Name = "Data de Cadastro")]
         public Nullable<System.DateTime> DataEntidade { get; set; }
-    
+
         public virtual EntidadeTipo EntidadeTipo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pedido> Pedidos { get; set; }

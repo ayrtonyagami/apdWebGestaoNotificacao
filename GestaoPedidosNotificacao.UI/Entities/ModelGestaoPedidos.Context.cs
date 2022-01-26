@@ -32,6 +32,5 @@ namespace GestaoPedidosNotificacao.UI.Entities
         public virtual DbSet<ServicoProduto> ServicoProdutoes { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<Utilizador> Utilizadors { get; set; }
-        public virtual DbSet<PedidoServico> PedidoServicoes { get; set; }
     }
 }

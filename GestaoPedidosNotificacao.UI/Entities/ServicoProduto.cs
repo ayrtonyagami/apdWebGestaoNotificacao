@@ -18,9 +18,9 @@ namespace GestaoPedidosNotificacao.UI.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ServicoProduto()
         {
-            this.PedidoServicoes = new HashSet<PedidoServico>();
+            this.Pedidos = new HashSet<Pedido>();
         }
-    
+
         public int Id { get; set; }
 
         [Display(Name = "Nome do Serviço")]
@@ -40,8 +40,8 @@ namespace GestaoPedidosNotificacao.UI.Entities
 
         [Display(Name = "É um produto?")]
         public Nullable<bool> IsProduto { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PedidoServico> PedidoServicoes { get; set; }
+        public virtual ICollection<Pedido> Pedidos { get; set; }
     }
 }

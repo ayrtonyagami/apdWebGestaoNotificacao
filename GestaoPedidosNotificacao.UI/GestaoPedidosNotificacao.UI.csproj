@@ -162,9 +162,6 @@
     <Compile Include="Entities\Pedido.cs">
       <DependentUpon>ModelGestaoPedidos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\PedidoServico.cs">
-      <DependentUpon>ModelGestaoPedidos.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entities\PedidosHistorico.cs">
       <DependentUpon>ModelGestaoPedidos.tt</DependentUpon>
     </Compile>

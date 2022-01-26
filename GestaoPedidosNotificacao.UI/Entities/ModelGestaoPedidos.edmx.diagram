@@ -15,12 +15,10 @@
         <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_Entidade_EntidadeTipo" />
         <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Entidade" />
         <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Status" />
-        <EntityTypeShape EntityType="GestaoPedidosNotificacaoDBModel.PedidoServico" Width="1.5" PointX="9.625" PointY="3.375" />
         <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Utilizador" />
-        <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_PedidoServico_Pedidos" />
         <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_PedidosHistorico_Pedidos" />
-        <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_PedidoServico_ServicoProduto" />
         <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_PedidosHistorico_Utilizador" />
+        <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_Pedidos_ServicoProduto" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

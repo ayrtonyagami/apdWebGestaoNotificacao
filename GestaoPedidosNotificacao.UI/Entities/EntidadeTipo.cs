@@ -22,7 +22,6 @@ namespace GestaoPedidosNotificacao.UI.Entities
         }
     
         public int Id { get; set; }
-
         [Display(Name = "Tipo Entidade")]
         public string Nome { get; set; }
     
