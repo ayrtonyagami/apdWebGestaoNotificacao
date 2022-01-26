@@ -33,6 +33,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
             {
                 return HttpNotFound();
             }
+            pedido.CalcularTempo();
             return View(pedido);
         }
 

@@ -8,14 +8,17 @@ namespace GestaoPedidosNotificacao.UI.Entities
 {
     public partial class Pedido
     {
+        [Display(Name = "Tempo de Facturas (dias)")]
         public int TempoFactura { get; set; }
+
+        [Display(Name = "Tempo de Pagamento (dias)")]
         public int TempoPagamento { get; set; }
 
         [Display(Name = "Finalidade (Serviço)")]
         public int ServicoId { get; set; }
 
 
-        private void CalcularTempo()
+        public void CalcularTempo()
         {
             CalcularTempoFactura();
             CalcularTempoPagamento();
@@ -23,13 +26,13 @@ namespace GestaoPedidosNotificacao.UI.Entities
 
         private void CalcularTempoFactura()
         {
-            if (this.DataFactura == null) return;
-            this.TempoFactura = (int)this.DataFactura.Value.Subtract(DateTime.Today).TotalDays;
+            if (DataFactura == null) TempoFactura = 0;
+            else TempoFactura = (int)DateTime.Today.Subtract(DataFactura.Value).TotalDays;
         }
         private void CalcularTempoPagamento()
         {
-            if (this.DataPagamento== null) return;
-            this.TempoFactura = (int)this.DataPagamento.Value.Subtract(DateTime.Today).TotalDays;
+            if (this.DataPagamento== null) TempoPagamento = 0;
+            else this.TempoPagamento = (int)DateTime.Today.Subtract(DataPagamento.Value).TotalDays;
         }
     }
 }
