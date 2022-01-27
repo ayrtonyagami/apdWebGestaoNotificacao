@@ -6,42 +6,48 @@
 }
 
 
-<p>
-    @Html.ActionLink("Novo Status", "Create", null, new { @class = "btn btn-primary" })
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            <a href="@Url.Action("Details","Status", new { id=item.Id })" class="btn btn-primary btn-circle">
-                <i class="fas fa-search"></i>
-            </a>
-            <a href="@Url.Action("Edit","Status", new { id=item.Id }))" class="btn btn-success btn-circle">
-                <i class="fas fa-edit"></i>
-            </a>
-            <a href="@Url.Action("Delete","Status", new { id=item.Id })" class="btn btn-danger btn-circle">
-                <i class="fas fa-trash"></i>
-            </a>
+<div class="card mb-4">
+
+    <div class="card-body">
+        <span class="float-right">
+            <br />
+            @Html.ActionLink("Novo Status", "Create", null, new { @class = "btn btn-primary" })
+            <br />.
+        </span>
+        <table id="dataTable" class="table table-bordered dataTable" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Descricao)
+                    </th>
+                    <th width="200"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Descricao)
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Details","Status", new { id=item.Id })" class="btn btn-primary btn-circle">
+                                <i class="fas fa-search"></i>
+                            </a>
+                            <a href="@Url.Action("Edit","Status", new { id=item.Id })" class="btn btn-success btn-circle">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="@Url.Action("Delete","Status", new { id=item.Id })" class="btn btn-danger btn-circle">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
 
 
-
-
-
-            @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
-        </td>
-    </tr>
-}
-
-</table>

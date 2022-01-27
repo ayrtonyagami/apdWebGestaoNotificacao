@@ -184,6 +184,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.css" />
+    <Content Include="Content\bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.min.css" />
+    <Content Include="Content\bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.standalone.css" />
+    <Content Include="Content\bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="Content\bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker3.css" />
+    <Content Include="Content\bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker3.standalone.css" />
+    <Content Include="Content\bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="Content\bootstrap-datepicker-1.9.0-dist\js\bootstrap-datepicker.js" />
+    <Content Include="Content\bootstrap-datepicker-1.9.0-dist\js\bootstrap-datepicker.min.js" />
+    <Content Include="Content\bootstrap-datepicker-1.9.0-dist\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <Content Include="Content\bootstrap-datepicker-1.9.0-dist\locales\bootstrap-datepicker.pt.min.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="css\sb-admin-2.css" />
@@ -210,6 +222,8 @@
     <Content Include="img\undraw_profile_2.svg" />
     <Content Include="img\undraw_profile_3.svg" />
     <Content Include="img\undraw_rocket.svg" />
+    <Content Include="js\jquery-ui.css" />
+    <Content Include="js\jquery-ui.js" />
     <Content Include="js\pageJs\chart-area-demo.js" />
     <Content Include="js\pageJs\chart-bar-demo.js" />
     <Content Include="js\pageJs\chart-pie-demo.js" />
@@ -225,6 +239,10 @@
     <Content Include="Entities\ModelGestaoPedidos.edmx.diagram">
       <DependentUpon>ModelGestaoPedidos.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.css.map" />
+    <Content Include="Content\bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.standalone.css.map" />
+    <Content Include="Content\bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker3.css.map" />
+    <Content Include="Content\bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker3.standalone.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

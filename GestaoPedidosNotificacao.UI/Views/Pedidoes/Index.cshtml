@@ -5,52 +5,62 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<p>
-    @Html.ActionLink("Novo Pedido", "Create", null, new { @class = "btn btn-primary" })
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Entidade.Denoninacao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Finalidade)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataFactura)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status.Descricao)
-        </th>
-        <th width="160"></th>
-    </tr>
+<div class="card mb-4">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Entidade.Denoninacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Finalidade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataFactura)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status.Descricao)
-        </td>
-        <td>
-            <a href="@Url.Action("Details","Pedidoes", new { id=item.Id })" class="btn btn-primary btn-circle">
-                <i class="fas fa-search"></i>
-            </a>
-            <a href="@Url.Action("Edit","Pedidoes", new { id=item.Id })" class="btn btn-success btn-circle">
-                <i class="fas fa-edit"></i>
-            </a>
-            <a href="@Url.Action("Delete","Pedidoes", new { id=item.Id })" class="btn btn-danger btn-circle">
-                <i class="fas fa-trash"></i>
-            </a>
-        </td>
-    </tr>
-}
-
+    <div class="card-body">
+        <span class="float-right">
+            <br />
+            @Html.ActionLink("Novo Pedido", "Create", null, new { @class = "btn btn-primary" })
+            <br />.
+        </span>
+        <table id="dataTable" class="table table-bordered dataTable" style="width:100%">
+            <thead>
+                <tr role="row">
+                    <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.Entidade.Denoninacao): activate to sort column ascending">
+                        @Html.DisplayNameFor(model => model.Entidade.Denoninacao)
+                    </th>
+                    <th tabindex="1" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.Finalidade): activate to sort column ascending">
+                        @Html.DisplayNameFor(model => model.Finalidade)
+                    </th>
+                    <th tabindex="2" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.DataFactura): activate to sort column ascending">
+                        @Html.DisplayNameFor(model => model.DataFactura)
+                    </th>
+                    <th tabindex="3" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.Status.Descricao): activate to sort column ascending">
+                        @Html.DisplayNameFor(model => model.Status.Descricao)
+                    </th>
+                    <th width="200"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Entidade.Denoninacao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Finalidade)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataFactura)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status.Descricao)
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Details","Pedidoes", new { id=item.Id })" class="btn btn-primary btn-circle">
+                                <i class="fas fa-search"></i>
+                            </a>
+                            <a href="@Url.Action("Edit","Pedidoes", new { id=item.Id })" class="btn btn-success btn-circle">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="@Url.Action("Delete","Pedidoes", new { id=item.Id })" class="btn btn-danger btn-circle">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
 </table>
+    </div>
+</div>

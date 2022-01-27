@@ -85,3 +85,4 @@ C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotifi
 C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\bin\Newtonsoft.Json.xml
 C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\obj\Debug\GestaoPedidosNotificacao.UI.dll
 C:\Users\ayrton.antonio\source\repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\obj\Debug\GestaoPedidosNotificacao.UI.pdb
+C:\Users\ayrton.antonio\Source\Repos\apdWebGestaoNotificacao\GestaoPedidosNotificacao.UI\obj\Debug\GestaoPedidosNotificacao.UI.csprojResolveAssemblyReference.cache

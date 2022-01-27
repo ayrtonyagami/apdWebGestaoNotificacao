@@ -1,5 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
+<head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,6 +15,10 @@
           rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="~/Content/bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+
+
+    
 </head>
 
 <body id="page-top">
@@ -57,9 +63,9 @@
     <!-- Logout Modal-->
     @Html.Partial("_LogoutModal")
 
-
-    <!-- Bootstrap core JavaScript-->
     <script src="~/vendor/jquery/jquery.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    
     <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -67,13 +73,27 @@
     <script src="~/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    
+
 
     <script src="~/vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="~/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Content/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.min.js"></script>
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")*@
     @RenderSection("scripts", required: false)
+
+    <script>
+    $(document).ready(function () {
+        $('#dataTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese.json"
+            }
+        });
+
+        $("#DataEntidade").datepicker({
+            format: 'dd/mm/yyyy'
+        })
+    });
+    </script>
 </body>
 </html>

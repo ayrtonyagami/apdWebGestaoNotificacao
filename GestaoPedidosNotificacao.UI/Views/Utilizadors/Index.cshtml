@@ -5,67 +5,70 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="card mb-4">
 
-<p>
-    @Html.ActionLink("Novo Utilizador", "Create",null, new { @class = "btn btn-primary" })
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Senha)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Funcao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataModificacao)
-        </th>
-        <th></th>
-    </tr>
+    <div class="card-body">
+        <span class="float-right">
+            <br />
+            @Html.ActionLink("Novo Utilizador", "Create", null, new { @class = "btn btn-primary" })
+            <br />.
+        </span>
+        <table id="dataTable" class="table table-bordered dataTable" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Funcao)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IsActive)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataModificacao)
+                    </th>
+                    <th width="200"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Funcao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsActive)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataModificacao)
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Details","Utilizadors", new { id=item.Id })" class="btn btn-primary btn-circle">
+                                <i class="fas fa-search"></i>
+                            </a>
+                            <a href="@Url.Action("Edit","Utilizadors", new { id=item.Id })" class="btn btn-success btn-circle">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="@Url.Action("Delete","Utilizadors", new { id=item.Id })" class="btn btn-danger btn-circle">
+                                <i class="fas fa-trash"></i>
+                            </a>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Senha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Funcao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataModificacao)
-        </td>
-        <td>
-            <a href="@Url.Action("Details","Utilizadors", new { id=item.Id })" class="btn btn-primary btn-circle">
-                <i class="fas fa-search"></i>
-            </a>
-            <a href="@Url.Action("Edit","Utilizadors", new { id=item.Id }))" class="btn btn-success btn-circle">
-                <i class="fas fa-edit"></i>
-            </a>
-            <a href="@Url.Action("Delete","Utilizadors", new { id=item.Id })" class="btn btn-danger btn-circle">
-                <i class="fas fa-trash"></i>
-            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 
-        </td>
-    </tr>
-}
-
-</table>

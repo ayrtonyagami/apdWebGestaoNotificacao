@@ -5,48 +5,59 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<p>
-    @Html.ActionLink("Novo Finalidadde", "Create",null,new { @clasee= "btn btn-primary" })
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Quantidade)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Valor)
-        </th>
-        <th></th>
-    </tr>
+<div class="card mb-4">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantidade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valor)
-        </td>
-        <td>
-            <a href="@Url.Action("Details","ServicoProdutoes", new { id=item.Id })" class="btn btn-primary btn-circle">
-                <i class="fas fa-search"></i>
-            </a>
-            <a href="@Url.Action("Edit","ServicoProdutoes", new { id=item.Id })" class="btn btn-success btn-circle">
-                <i class="fas fa-edit"></i>
-            </a>
-            <a href="@Url.Action("Delete","ServicoProdutoes", new { id=item.Id })" class="btn btn-danger btn-circle">
-                <i class="fas fa-trash"></i>
-            </a>
+    <div class="card-body">
+        <span class="float-right">
+            <br />
+            @Html.ActionLink("Novo Pedido", "Create", null, new { @class = "btn btn-primary" })
+            <br />.
+        </span>
+        <table id="dataTable" class="table table-bordered dataTable" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Quantidade)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Valor)
+                    </th>
+                    <th width="200"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quantidade)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Valor)
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Details","ServicoProdutoes", new { id=item.Id })" class="btn btn-primary btn-circle">
+                                <i class="fas fa-search"></i>
+                            </a>
+                            <a href="@Url.Action("Edit","ServicoProdutoes", new { id=item.Id })" class="btn btn-success btn-circle">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="@Url.Action("Delete","ServicoProdutoes", new { id=item.Id })" class="btn btn-danger btn-circle">
+                                <i class="fas fa-trash"></i>
+                            </a>
 
 
-        </td>
-    </tr>
-}
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
 
-</table>
+    </div>
+</div>

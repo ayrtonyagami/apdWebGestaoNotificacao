@@ -7,54 +7,64 @@
 
 
 
-    <p>
-        @Html.ActionLink("Cadastrar Nova", "Create",null,new { @class="btn btn-primary" })
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Denoninacao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NumeroProcesso)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataEntidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EntidadeTipo.Nome)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Denoninacao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumeroProcesso)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataEntidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EntidadeTipo.Nome)
-            </td> 
-            <td>
-                <a href="@Url.Action("Details","Entidades", new { id=item.Id })" class="btn btn-primary btn-circle">
-                    <i class="fas fa-search"></i>
-                </a>
-                <a href="@Url.Action("Edit","Entidades", new { id=item.Id })" class= "btn btn-success btn-circle">
-                    <i class="fas fa-edit"></i>
-                </a>
-                <a href="@Url.Action("Delete","Entidades", new { id=item.Id })" class= "btn btn-danger btn-circle">
-                    <i class="fas fa-trash"></i>
-                </a>
 
-            </td>
-        </tr>
-    }
+<div class="card mb-4">
     
-    </table>
+    <div class="card-body">
+        <span class="float-right"><br />
+            @Html.ActionLink("Cadastrar Nova", "Create", null, new { @class = "btn btn-primary" })
+        </span>
+        <table id="dataTable" class="table table-bordered dataTable" style="width:100%">
+            <thead>
+                <tr role="row">
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.Denoninacao): activate to sort column ascending">
+                        @Html.DisplayNameFor(model => model.Denoninacao)
+                    </th>
+                    <th class="sorting" tabindex="1" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.Denoninacao): activate to sort column ascending">
+                        @Html.DisplayNameFor(model => model.NumeroProcesso)
+                    </th>
+                    <th class="sorting" tabindex="2" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.Denoninacao): activate to sort column ascending">
+                        @Html.DisplayNameFor(model => model.DataEntidade)
+                    </th>
+                    <th class="sorting" tabindex="3" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.Denoninacao): activate to sort column ascending">
+                        @Html.DisplayNameFor(model => model.EntidadeTipo.Nome)
+                    </th>
+                    <th style="width:180px !important;">Acções</th>
+                </tr>
+            </thead>
+            <tbody>
 
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Denoninacao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NumeroProcesso)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataEntidade)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EntidadeTipo.Nome)
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Details","Entidades", new { id=item.Id })" class="btn btn-primary btn-circle">
+                                <i class="fas fa-search"></i>
+                            </a>
+                            <a href="@Url.Action("Edit","Entidades", new { id=item.Id })" class="btn btn-success btn-circle">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="@Url.Action("Delete","Entidades", new { id=item.Id })" class="btn btn-danger btn-circle">
+                                <i class="fas fa-trash"></i>
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

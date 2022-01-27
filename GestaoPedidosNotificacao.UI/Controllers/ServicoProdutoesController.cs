@@ -46,10 +46,11 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,Descricao,Quantidade,Valor,DataModificacao,IsProduto")] ServicoProduto servicoProduto)
+        public ActionResult Create([Bind(Include = "Id,Nome,Descricao,Quantidade,Valor,IsProduto")] ServicoProduto servicoProduto)
         {
             if (ModelState.IsValid)
             {
+                servicoProduto.DataModificacao = DateTime.Now;
                 db.ServicoProdutoes.Add(servicoProduto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,10 +79,11 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,Descricao,Quantidade,Valor,DataModificacao,IsProduto")] ServicoProduto servicoProduto)
+        public ActionResult Edit([Bind(Include = "Id,Nome,Descricao,Quantidade,Valor,IsProduto")] ServicoProduto servicoProduto)
         {
             if (ModelState.IsValid)
             {
+                servicoProduto.DataModificacao = DateTime.Now;
                 db.Entry(servicoProduto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -46,10 +46,11 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,Senha,Email,Funcao,IsActive,DataModificacao")] Utilizador utilizador)
+        public ActionResult Create([Bind(Include = "Id,Nome,Senha,Email,Funcao,IsActive")] Utilizador utilizador)
         {
             if (ModelState.IsValid)
             {
+                utilizador.DataModificacao = DateTime.Now;
                 db.Utilizadors.Add(utilizador);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,10 +79,11 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,Senha,Email,Funcao,IsActive,DataModificacao")] Utilizador utilizador)
+        public ActionResult Edit([Bind(Include = "Id,Nome,Senha,Email,Funcao,IsActive")] Utilizador utilizador)
         {
             if (ModelState.IsValid)
             {
+                utilizador.DataModificacao = DateTime.Now;
                 db.Entry(utilizador).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
