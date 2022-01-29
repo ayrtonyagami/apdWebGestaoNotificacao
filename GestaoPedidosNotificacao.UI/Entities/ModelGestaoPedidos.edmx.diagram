@@ -6,19 +6,19 @@
     <edmx:Diagrams>
       <Diagram DiagramId="b018f3f6d6ee42f1add6710bdeeb2560" Name="Diagram1">
         <EntityTypeShape EntityType="GestaoPedidosNotificacaoDBModel.EntidadeTipo" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GestaoPedidosNotificacaoDBModel.Entidade" Width="1.5" PointX="3" PointY="4.625" />
         <EntityTypeShape EntityType="GestaoPedidosNotificacaoDBModel.Pedido" Width="1.5" PointX="5.25" PointY="4.375" />
         <EntityTypeShape EntityType="GestaoPedidosNotificacaoDBModel.PedidosHistorico" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="GestaoPedidosNotificacaoDBModel.ServicoProduto" Width="1.5" PointX="7.375" PointY="0.75" />
         <EntityTypeShape EntityType="GestaoPedidosNotificacaoDBModel.Status" Width="1.5" PointX="3" PointY="2" />
         <EntityTypeShape EntityType="GestaoPedidosNotificacaoDBModel.Utilizador" Width="1.5" PointX="7.375" PointY="4.75" />
-        <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_Entidade_EntidadeTipo" />
-        <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Entidade" />
         <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Status" />
         <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Utilizador" />
         <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_PedidosHistorico_Pedidos" />
         <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_PedidosHistorico_Utilizador" />
         <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_Pedidos_ServicoProduto" />
+        <EntityTypeShape EntityType="GestaoPedidosNotificacaoDBModel.Entidade" Width="1.5" PointX="3" PointY="4.875" />
+        <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_Entidade_EntidadeTipo" />
+        <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Entidade" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

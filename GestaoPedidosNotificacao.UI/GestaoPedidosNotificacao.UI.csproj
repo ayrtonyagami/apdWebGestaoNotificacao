@@ -138,6 +138,12 @@
     <Compile Include="Controllers\ServicoProdutoesController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Controllers\UtilizadorsController.cs" />
+    <Compile Include="Entities\DressModel\EntidadeDress.cs" />
+    <Compile Include="Entities\DressModel\EntidadeTipoDress.cs" />
+    <Compile Include="Entities\DressModel\PedidoDress.cs" />
+    <Compile Include="Entities\DressModel\ServicoProdutoDress.cs" />
+    <Compile Include="Entities\DressModel\StatusDress.cs" />
+    <Compile Include="Entities\DressModel\UtilizadorDress.cs" />
     <Compile Include="Entities\Entidade.cs">
       <DependentUpon>ModelGestaoPedidos.tt</DependentUpon>
     </Compile>
@@ -180,6 +186,7 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\PedidoModel.cs" />
     <Compile Include="Models\PedidosAnualChartModel.cs" />
+    <Compile Include="Models\PedidosStatusDonutModel.cs" />
     <Compile Include="Models\StatusCardModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

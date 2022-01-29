@@ -11,8 +11,7 @@ namespace GestaoPedidosNotificacao.UI.Entities
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Pedido
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,42 +19,24 @@ namespace GestaoPedidosNotificacao.UI.Entities
         {
             this.PedidosHistoricoes = new HashSet<PedidosHistorico>();
         }
-
-        public int Id { get; set; }
-
-        [Display(Name = "Finalidade")]
-        public string Finalidade { get; set; }
-
-        [Display(Name = "Entidade")]
-        public Nullable<int> EntidadeId { get; set; }
-
-        [Display(Name = "Valor")]
-        public Nullable<decimal> Valor { get; set; }
-
-        [Display(Name = "Status")]
-        public Nullable<int> EstadoId { get; set; }
-
-        [Display(Name = "Observação")]
-        public string Observacao { get; set; }
-
-        [Display(Name = "Data da Factura")]
-        public Nullable<System.DateTime> DataFactura { get; set; }
-
-        [Display(Name = "Data do Pagamento")]
-        public Nullable<System.DateTime> DataPagamento { get; set; }
-
-
-        [Display(Name = "Utilizador")]
-        public Nullable<int> UtilizadorId { get; set; }
-
-        [Display(Name = "Finalidade (Serviço)")]
-        public Nullable<int> ServicoId { get; set; }
     
-        public virtual Entidade Entidade { get; set; }
+        public int Id { get; set; }
+        public string Finalidade { get; set; }
+        public Nullable<int> EntidadeId { get; set; }
+        public Nullable<decimal> Valor { get; set; }
+        public Nullable<int> EstadoId { get; set; }
+        public string Observacao { get; set; }
+        public Nullable<System.DateTime> DataFactura { get; set; }
+        public Nullable<System.DateTime> DataPagamento { get; set; }
+        public Nullable<int> UtilizadorId { get; set; }
+        public Nullable<int> ServicoId { get; set; }
+        public string NumProcesso { get; set; }
+    
         public virtual Status Status { get; set; }
         public virtual Utilizador Utilizador { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PedidosHistorico> PedidosHistoricoes { get; set; }
         public virtual ServicoProduto ServicoProduto { get; set; }
+        public virtual Entidade Entidade { get; set; }
     }
 }

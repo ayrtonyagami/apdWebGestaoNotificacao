@@ -10,20 +10,11 @@
   </EntityType>
   <EntityContainer Name="GestaoPedidosNotificacaoDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="EntidadeTipoes" EntityType="Self.EntidadeTipo" />
-    <EntitySet Name="Entidades" EntityType="GestaoPedidosNotificacaoDBModel.Entidade" />
     <EntitySet Name="Pedidos" EntityType="GestaoPedidosNotificacaoDBModel.Pedido" />
     <EntitySet Name="PedidosHistoricoes" EntityType="GestaoPedidosNotificacaoDBModel.PedidosHistorico" />
     <EntitySet Name="ServicoProdutoes" EntityType="GestaoPedidosNotificacaoDBModel.ServicoProduto" />
     <EntitySet Name="Status" EntityType="GestaoPedidosNotificacaoDBModel.Status" />
     <EntitySet Name="Utilizadors" EntityType="GestaoPedidosNotificacaoDBModel.Utilizador" />
-    <AssociationSet Name="FK_Entidade_EntidadeTipo" Association="GestaoPedidosNotificacaoDBModel.FK_Entidade_EntidadeTipo">
-      <End Role="EntidadeTipo" EntitySet="EntidadeTipoes" />
-      <End Role="Entidade" EntitySet="Entidades" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Pedidos_Entidade" Association="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Entidade">
-      <End Role="Entidade" EntitySet="Entidades" />
-      <End Role="Pedido" EntitySet="Pedidos" />
-    </AssociationSet>
     <AssociationSet Name="FK_Pedidos_Status" Association="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Status">
       <End Role="Status" EntitySet="Status" />
       <End Role="Pedido" EntitySet="Pedidos" />
@@ -44,19 +35,16 @@
       <End Role="ServicoProduto" EntitySet="ServicoProdutoes" />
       <End Role="Pedido" EntitySet="Pedidos" />
     </AssociationSet>
+    <EntitySet Name="Entidades" EntityType="GestaoPedidosNotificacaoDBModel.Entidade" />
+    <AssociationSet Name="FK_Entidade_EntidadeTipo" Association="GestaoPedidosNotificacaoDBModel.FK_Entidade_EntidadeTipo">
+      <End Role="EntidadeTipo" EntitySet="EntidadeTipoes" />
+      <End Role="Entidade" EntitySet="Entidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pedidos_Entidade" Association="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Entidade">
+      <End Role="Entidade" EntitySet="Entidades" />
+      <End Role="Pedido" EntitySet="Pedidos" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Entidade">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Denoninacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="NumeroProcesso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="EntidadeTipoId" Type="Int32" />
-    <Property Name="DataEntidade" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="EntidadeTipo" Relationship="GestaoPedidosNotificacaoDBModel.FK_Entidade_EntidadeTipo" FromRole="Entidade" ToRole="EntidadeTipo" />
-    <NavigationProperty Name="Pedidos" Relationship="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Entidade" FromRole="Entidade" ToRole="Pedido" />
-  </EntityType>
   <EntityType Name="Pedido">
     <Key>
       <PropertyRef Name="Id" />
@@ -69,13 +57,14 @@
     <Property Name="Observacao" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <Property Name="DataFactura" Type="DateTime" Precision="3" />
     <Property Name="DataPagamento" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Entidade" Relationship="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Entidade" FromRole="Pedido" ToRole="Entidade" />
     <NavigationProperty Name="Status" Relationship="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Status" FromRole="Pedido" ToRole="Status" />
     <Property Name="UtilizadorId" Type="Int32" />
     <NavigationProperty Name="Utilizador" Relationship="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Utilizador" FromRole="Pedido" ToRole="Utilizador" />
     <NavigationProperty Name="PedidosHistoricoes" Relationship="GestaoPedidosNotificacaoDBModel.FK_PedidosHistorico_Pedidos" FromRole="Pedido" ToRole="PedidosHistorico" />
     <Property Name="ServicoId" Type="Int32" />
     <NavigationProperty Name="ServicoProduto" Relationship="GestaoPedidosNotificacaoDBModel.FK_Pedidos_ServicoProduto" FromRole="Pedido" ToRole="ServicoProduto" />
+    <Property Name="NumProcesso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Entidade" Relationship="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Entidade" FromRole="Pedido" ToRole="Entidade" />
   </EntityType>
   <EntityType Name="PedidosHistorico">
     <Key>
@@ -111,7 +100,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Pedidos" Relationship="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Status" FromRole="Status" ToRole="Pedido" />
-    <Property Name="Cor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Cor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Utilizador">
     <Key>
@@ -127,30 +116,6 @@
     <NavigationProperty Name="Pedidos" Relationship="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Utilizador" FromRole="Utilizador" ToRole="Pedido" />
     <NavigationProperty Name="PedidosHistoricoes" Relationship="GestaoPedidosNotificacaoDBModel.FK_PedidosHistorico_Utilizador" FromRole="Utilizador" ToRole="PedidosHistorico" />
   </EntityType>
-  <Association Name="FK_Entidade_EntidadeTipo">
-    <End Type="GestaoPedidosNotificacaoDBModel.EntidadeTipo" Role="EntidadeTipo" Multiplicity="0..1" />
-    <End Type="GestaoPedidosNotificacaoDBModel.Entidade" Role="Entidade" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="EntidadeTipo">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Entidade">
-        <PropertyRef Name="EntidadeTipoId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Pedidos_Entidade">
-    <End Type="GestaoPedidosNotificacaoDBModel.Entidade" Role="Entidade" Multiplicity="0..1" />
-    <End Type="GestaoPedidosNotificacaoDBModel.Pedido" Role="Pedido" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Entidade">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Pedido">
-        <PropertyRef Name="EntidadeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Pedidos_Status">
     <End Type="GestaoPedidosNotificacaoDBModel.Status" Role="Status" Multiplicity="0..1" />
     <End Type="GestaoPedidosNotificacaoDBModel.Pedido" Role="Pedido" Multiplicity="*" />
@@ -208,6 +173,43 @@
       </Principal>
       <Dependent Role="Pedido">
         <PropertyRef Name="ServicoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Entidade">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Denoninacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EntidadeTipoId" Type="Int32" />
+    <Property Name="DataEntidade" Type="DateTime" Precision="3" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EntidadeTipo" Relationship="GestaoPedidosNotificacaoDBModel.FK_Entidade_EntidadeTipo" FromRole="Entidade" ToRole="EntidadeTipo" />
+    <NavigationProperty Name="Pedidos" Relationship="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Entidade" FromRole="Entidade" ToRole="Pedido" />
+  </EntityType>
+  <Association Name="FK_Entidade_EntidadeTipo">
+    <End Type="GestaoPedidosNotificacaoDBModel.EntidadeTipo" Role="EntidadeTipo" Multiplicity="0..1" />
+    <End Type="GestaoPedidosNotificacaoDBModel.Entidade" Role="Entidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EntidadeTipo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Entidade">
+        <PropertyRef Name="EntidadeTipoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pedidos_Entidade">
+    <End Type="GestaoPedidosNotificacaoDBModel.Entidade" Role="Entidade" Multiplicity="0..1" />
+    <End Type="GestaoPedidosNotificacaoDBModel.Pedido" Role="Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entidade">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="EntidadeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

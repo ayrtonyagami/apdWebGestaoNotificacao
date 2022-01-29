@@ -9,20 +9,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Entidades">
-      <EntityTypeMapping TypeName="GestaoPedidosNotificacaoDBModel.Entidade">
-        <MappingFragment StoreEntitySet="Entidade">
-          <ScalarProperty Name="DataEntidade" ColumnName="DataEntidade" />
-          <ScalarProperty Name="EntidadeTipoId" ColumnName="EntidadeTipoId" />
-          <ScalarProperty Name="NumeroProcesso" ColumnName="NumeroProcesso" />
-          <ScalarProperty Name="Denoninacao" ColumnName="Denoninacao" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Pedidos">
       <EntityTypeMapping TypeName="GestaoPedidosNotificacaoDBModel.Pedido">
         <MappingFragment StoreEntitySet="Pedidos">
+          <ScalarProperty Name="NumProcesso" ColumnName="NumProcesso" />
           <ScalarProperty Name="ServicoId" ColumnName="ServicoId" />
           <ScalarProperty Name="UtilizadorId" ColumnName="UtilizadorId" />
           <ScalarProperty Name="DataPagamento" ColumnName="DataPagamento" />
@@ -80,6 +70,18 @@
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Senha" ColumnName="Senha" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entidades">
+      <EntityTypeMapping TypeName="GestaoPedidosNotificacaoDBModel.Entidade">
+        <MappingFragment StoreEntitySet="Entidade">
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DataEntidade" ColumnName="DataEntidade" />
+          <ScalarProperty Name="EntidadeTipoId" ColumnName="EntidadeTipoId" />
+          <ScalarProperty Name="Denoninacao" ColumnName="Denoninacao" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

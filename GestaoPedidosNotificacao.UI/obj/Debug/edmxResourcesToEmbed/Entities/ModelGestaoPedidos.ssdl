@@ -6,9 +6,10 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Denoninacao" Type="varchar" MaxLength="50" />
-    <Property Name="NumeroProcesso" Type="varchar" MaxLength="50" />
     <Property Name="EntidadeTipoId" Type="int" />
     <Property Name="DataEntidade" Type="datetime" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Telefone" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="EntidadeTipo">
     <Key>
@@ -31,6 +32,7 @@
     <Property Name="DataPagamento" Type="datetime" />
     <Property Name="UtilizadorId" Type="int" />
     <Property Name="ServicoId" Type="int" />
+    <Property Name="NumProcesso" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="PedidosHistorico">
     <Key>
@@ -62,7 +64,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descricao" Type="varchar" MaxLength="50" />
-    <Property Name="Cor" Type="varchar" MaxLength="10" />
+    <Property Name="Cor" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="Utilizador">
     <Key>

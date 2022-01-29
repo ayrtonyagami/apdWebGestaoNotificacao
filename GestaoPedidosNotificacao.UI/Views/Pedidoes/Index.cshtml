@@ -19,6 +19,9 @@
                     <th tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.Entidade.Denoninacao): activate to sort column ascending">
                         @Html.DisplayNameFor(model => model.Entidade.Denoninacao)
                     </th>
+                    <th tabindex="1" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.NumProcesso): activate to sort column ascending">
+                        @Html.DisplayNameFor(model => model.NumProcesso)
+                    </th>
                     <th tabindex="1" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.Finalidade): activate to sort column ascending">
                         @Html.DisplayNameFor(model => model.Finalidade)
                     </th>
@@ -37,6 +40,9 @@
                     <tr>
                         <td>
                             @Html.DisplayFor(modelItem => item.Entidade.Denoninacao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NumProcesso)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Finalidade)

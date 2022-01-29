@@ -40,7 +40,8 @@ namespace GestaoPedidosNotificacao.UI.Controllers
             {
                 var card = new StatusCardModel();
                 card.StatusName = item.Descricao;
-                card.QtdStatus = item.Pedidos.Count;
+                card.Css = item.Cor;
+                card.QtdStatus = item.Pedidos.Count(x=> x.DataFactura.Value.Year == DateTime.Now.Year);
                 li.Add(card);
             }
 
@@ -52,7 +53,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         public ActionResult _PedidosAnualChart()
         {
             int ano = DateTime.Now.Year;
-            var liResult = db.Pedidos.ToList();
+            var liResult = db.Pedidos.Where(x=>x.DataFactura.Value.Year == ano).ToList();
             var li = new ListPedidosAnualChartModel();
             li.PedidosAnual = new List<PedidosAnualChartModel>();
 
@@ -74,7 +75,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         public ActionResult _PedidosMensalPagasChart()
         {
             int ano = DateTime.Now.Year;
-            var liResult = db.Pedidos.ToList();
+            var liResult = db.Pedidos.Where(x => x.DataFactura.Value.Year == ano).ToList();
             var li = new ListPedidosMensalPagasChartModel();
             li.PedidosPagosAnual = new List<PedidosMensalPagasChartModel>();
 
@@ -107,8 +108,24 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         [ChildActionOnly]
         public ActionResult _PedidosStatusDonut()
         {
-            
-            return PartialView("_PedidosStatusDonut");
+
+            ListPedidosStatusDonutModel donut = new ListPedidosStatusDonutModel();
+
+            var liResult = db.Status.ToList();
+
+            donut.PedidosAnual = new List<PedidosStatusDonutModel>();
+            foreach (var item in liResult)
+            {
+                var card = new PedidosStatusDonutModel();
+                card.StatusName = item.Descricao;
+                card.PercStatus = item.Pedidos.Count(x => x.DataFactura.Value.Year == DateTime.Now.Year);
+                donut.PedidosAnual.Add(card);
+            }
+
+            donut.CalcularPercentange();
+
+
+            return PartialView("_PedidosStatusDonut", donut);
 
         }
     }
