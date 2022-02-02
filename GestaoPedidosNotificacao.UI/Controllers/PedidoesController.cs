@@ -29,7 +29,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
             {
                 var pedidosFull = db.Pedidos.Include(p => p.Entidade).Include(p => p.Status).Include(p => p.Utilizador);
                 FillListViewBag(null);
-                return View(pedidosFull.ToList());
+                return View(pedidosFull.OrderByDescending(x=>x.DataFactura).ToList());
             }
 
             var query = db.Pedidos.Where(x=> x.EntidadeId != null);
@@ -40,15 +40,15 @@ namespace GestaoPedidosNotificacao.UI.Controllers
 
             //Data de facturação
             if (search.DataFacStart != null && search.DataFacEnd != null)
-                query = query.Where(x => DbFunctions.TruncateTime(x.DataFactura.Value) >= search.DataFacStart.Value.Date
-                && DbFunctions.TruncateTime(x.DataFactura.Value) <= search.DataFacEnd.Value.Date);
+                query = query.Where(x => DbFunctions.TruncateTime(x.DataFactura.Value) >= DbFunctions.TruncateTime(search.DataFacStart.Value)
+                && DbFunctions.TruncateTime(x.DataFactura.Value) <= DbFunctions.TruncateTime(search.DataFacEnd.Value));
             else if (search.DataFacStart != null)
                 query = query.Where(x => DbFunctions.TruncateTime(x.DataFactura.Value) == search.DataFacStart.Value.Date);
 
             //Data de pagamento
             if (search.DataPagStart != null && search.DataPagEnd != null)
-                query = query.Where(x => DbFunctions.TruncateTime(x.DataPagamento.Value) >= search.DataPagStart.Value.Date
-                && DbFunctions.TruncateTime(x.DataPagamento.Value) <= search.DataPagEnd.Value.Date);
+                query = query.Where(x => DbFunctions.TruncateTime(x.DataPagamento.Value) >= DbFunctions.TruncateTime(search.DataPagStart.Value)
+                && DbFunctions.TruncateTime(x.DataPagamento.Value) <= DbFunctions.TruncateTime(search.DataPagEnd.Value));
             else if (search.DataPagStart != null)
                 query = query.Where(x => DbFunctions.TruncateTime(x.DataFactura.Value) == search.DataPagStart.Value.Date);
 
@@ -56,7 +56,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
 
             var pedidos = query.Include(p => p.Entidade).Include(p => p.Status).Include(p => p.Utilizador);
             FillListViewBag(null);
-            return View(pedidos.ToList());
+            return View(pedidos.OrderByDescending(x => x.DataFactura).ToList());
         }
 
         // GET: Pedidoes/Details/5

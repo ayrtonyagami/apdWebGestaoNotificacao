@@ -4,7 +4,7 @@
 @{
     ViewBag.Title = "Pedidos";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var _searchModel = new GestaoPedidosNotificacao.UI.Models.SearchPedidosModel();
+    var search = new GestaoPedidosNotificacao.UI.Models.SearchPedidosModel();
 }
 
 <div class="card mb-4">
@@ -16,7 +16,7 @@
 
         <div class="row">
             <div class="col-md-4">
-                @Html.LabelFor(model => _searchModel.EntidadeId, htmlAttributes: new { @class = "control-label" })
+                @Html.LabelFor(model => search.EntidadeId, htmlAttributes: new { @class = "control-label" })
                 <div class="">
                     @Html.DropDownList("EntidadeId", null, htmlAttributes: new { @class = "form-control" })
                 </div>
@@ -24,14 +24,14 @@
 
 
             <div class="col-md-4">
-                @Html.LabelFor(model => _searchModel.NumProcesso, htmlAttributes: new { @class = "control-label" })
+                @Html.LabelFor(model => search.NumProcesso, htmlAttributes: new { @class = "control-label" })
                 <div class="">
-                    @Html.EditorFor(model => _searchModel.NumProcesso, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.Editor("NumProcesso", new { htmlAttributes = new { @class = "form-control" } })
 
                 </div>
             </div>
             <div class="col-md-4">
-                @Html.LabelFor(model => _searchModel.EstadoId, htmlAttributes: new { @class = "control-label" })
+                @Html.LabelFor(model => search.EstadoId, htmlAttributes: new { @class = "control-label" })
                 <div class="">
                     @Html.DropDownList("EstadoId", null, htmlAttributes: new { @class = "form-control" })
                 </div>
@@ -42,14 +42,14 @@
             <div class="col-md-2">
                 @Html.Label("Data de Factura", htmlAttributes: new { @class = "control-label" })
                 <div class="">
-                    @Html.EditorFor(model => _searchModel.DataFacStart, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.Editor("DataFacStart", new { htmlAttributes = new { @class = "form-control" } })
 
                 </div>
             </div>
             <div class="col-md-2">
                 @Html.Label("Data Fim", htmlAttributes: new { @class = "control-label" })
                 <div class="">
-                    @Html.EditorFor(model => _searchModel.DataFacEnd, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.Editor("DataFacEnd", new { htmlAttributes = new { @class = "form-control" } })
 
                 </div>
             </div>
@@ -57,14 +57,14 @@
             <div class="col-md-2">
                 @Html.Label("Data de Pagamento", htmlAttributes: new { @class = "control-label" })
                 <div class="">
-                    @Html.EditorFor(model => _searchModel.DataPagStart, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.Editor("DataPagStart", new { htmlAttributes = new { @class = "form-control" } })
 
                 </div>
             </div>
             <div class="col-md-2">
                 @Html.Label("Data Fim", htmlAttributes: new { @class = "control-label" })
                 <div class="">
-                    @Html.EditorFor(model => _searchModel.DataPagEnd, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.Editor("DataPagEnd", new { htmlAttributes = new { @class = "form-control" } })
 
                 </div>
             </div>
