@@ -5,56 +5,158 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <div>
-        <h4>Entidade</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Denoninacao)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Denoninacao)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Email)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Email)
-            </dd>
+
+    <!-- Dropdown Card Example -->
+    <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Informações sobre @ViewBag.Title</h6>
+            <div class="dropdown no-arrow">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" style="">
+                    <div class="dropdown-header">Opções:</div>
+                    @Html.ActionLink("Novo Pedido", "Create", "Pedidoes", new { entidadeId = Model.Id }, new { @class = "dropdown-item" })
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-primary" href="@Url.Action("Edit","Entidades", new { id = Model.Id })"><i class="fas fa-edit"></i> Editar</a>
+                    <a class="dropdown-item text-danger" href="@Url.Action("Delete","Entidades", new { id = Model.Id })"><i class="fas fa-trash"></i> Excluir</a>
+                </div>
+            </div>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <b>
+                        @Html.DisplayNameFor(model => model.Denoninacao)
+                    </b>
+
+                    <p>
+                        @Html.DisplayFor(model => model.Denoninacao)
+                    </p>
+
+                    <b>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </b>
+                    <p>
+                        @Html.DisplayFor(model => model.Email)
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <b>
+                        @Html.DisplayNameFor(model => model.Telefone)
+                    </b>
+
+                    <p>
+                        @Html.DisplayFor(model => model.Telefone)
+                    </p>
+
+                    <b>
+                        @Html.DisplayNameFor(model => model.DataEntidade)
+                    </b>
+
+                    <p>
+                        @Html.DisplayFor(model => model.DataEntidade)
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <b>
+                        @Html.DisplayNameFor(model => model.EntidadeTipo.Nome)
+                    </b>
+
+                    <p>
+                        @Html.DisplayFor(model => model.EntidadeTipo.Nome)
+                    </p>
+                </div>
 
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Telefone)
-            </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Telefone)
-            </dd>
+            </div>
+        </div>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.DataEntidade)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.DataEntidade)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.EntidadeTipo.Nome)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.EntidadeTipo.Nome)
-            </dd>
-    
-        </dl>
     </div>
-    <p>
-        @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
-        @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-danger" })
 
-    </p>
+
+
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h6 class="m-0 font-weight-bold text-primary">Pedidos</h6>
+    </div>
+    <div class=" card-body">
+@if (Model.Pedidos.Any())
+{
+        <span class="float-right">
+            <br />
+            @Html.ActionLink("Novo Pedido", "Create", "Pedidoes", new { entidadeId = Model.Id }, new { @class = "btn btn-primary" })
+            <br />.
+        </span>
+            <table id="dataTable" class="table table-bordered dataTable" style="width:100%">
+                <thead>
+                    <tr role="row">
+                        <th tabindex="1" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.Pedidos.First().NumProcesso): activate to sort column ascending">
+                            @Html.DisplayNameFor(model => model.Pedidos.First().NumProcesso)
+                        </th>
+                        <th tabindex="1" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.Pedidos.First().Finalidade): activate to sort column ascending">
+                            @Html.DisplayNameFor(model => model.Pedidos.First().Finalidade)
+                        </th>
+                        <th tabindex="2" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.Pedidos.First().DataFactura): activate to sort column ascending">
+                            @Html.DisplayNameFor(model => model.Pedidos.First().DataFactura)
+                        </th>
+                        <th tabindex="3" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.Pedidos.First().Status.Descricao): activate to sort column ascending">
+                            @Html.DisplayNameFor(model => model.Pedidos.First().Status.Descricao)
+                        </th>
+                        <th width="200"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Pedidos)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NumProcesso)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Finalidade)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataFactura)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Status.Descricao)
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Details", "Pedidoes", new { id = item.Id })" class="btn btn-primary btn-circle">
+                                    <i class="fas fa-search"></i>
+                                </a>
+                                <a href="@Url.Action("Edit", "Pedidoes", new { id = item.Id })" class="btn btn-success btn-circle">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="@Url.Action("Delete", "Pedidoes", new { id = item.Id })" class="btn btn-danger btn-circle">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="text-center text-gray-500">
+                <b>Sem pedidos</b><br />
+                <div class="mt-3">
+                    @Html.ActionLink("Novo Pedido", "Create", "Pedidoes", new { entidadeId = Model.Id }, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-danger" })
+
+</p>
 

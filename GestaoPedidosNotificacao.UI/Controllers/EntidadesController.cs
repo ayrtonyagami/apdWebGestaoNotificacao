@@ -29,6 +29,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Entidade entidade = db.Entidades.Find(id);
+
             if (entidade == null)
             {
                 return HttpNotFound();
@@ -48,8 +49,9 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Denoninacao,NumeroProcesso,EntidadeTipoId,DataEntidade")] Entidade entidade)
+        public ActionResult Create([Bind(Include = "Id,Denoninacao,Email,Telefone,NumeroProcesso,EntidadeTipoId,DataEntidade")] Entidade entidade)
         {
+
             if (ModelState.IsValid)
             {
                 db.Entidades.Add(entidade);
@@ -82,7 +84,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Denoninacao,NumeroProcesso,EntidadeTipoId,DataEntidade")] Entidade entidade)
+        public ActionResult Edit([Bind(Include = "Id,Denoninacao,Email,Telefone,NumeroProcesso,EntidadeTipoId,DataEntidade")] Entidade entidade)
         {
             if (ModelState.IsValid)
             {

@@ -183,10 +183,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EntidadesDetailsView.cs" />
+    <Compile Include="Models\ExtensionModels.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\PedidoModel.cs" />
     <Compile Include="Models\PedidosAnualChartModel.cs" />
     <Compile Include="Models\PedidosStatusDonutModel.cs" />
+    <Compile Include="Models\SearchPedidosModel.cs" />
     <Compile Include="Models\StatusCardModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

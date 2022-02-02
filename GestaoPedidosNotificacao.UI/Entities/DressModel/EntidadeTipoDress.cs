@@ -5,7 +5,7 @@ namespace GestaoPedidosNotificacao.UI.Entities
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    [MetadataType(typeof(EntidadeDress))]
+    [MetadataType(typeof(EntidadeTipoDress))]
     public partial class EntidadeTipo
     {
     }
