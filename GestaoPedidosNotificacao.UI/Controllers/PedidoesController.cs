@@ -87,8 +87,9 @@ namespace GestaoPedidosNotificacao.UI.Controllers
                 ViewBag.FromEntidade = true;
                 Pedido model = new Pedido();
                 model.Entidade = entidade;
-                model.EntidadeId = entidadeId;  
+                model.EntidadeId = entidadeId;
 
+                
                 return View(model);
             }
             else
@@ -109,6 +110,9 @@ namespace GestaoPedidosNotificacao.UI.Controllers
             {
                 var servico = db.ServicoProdutoes.Find(pedido.ServicoId);
 
+                int utilizadorId = int.Parse(User.Identity.Name);
+
+                pedido.UtilizadorId = utilizadorId;
                 pedido.Finalidade = servico.Nome;
                 pedido.Valor = servico.Valor;
 
