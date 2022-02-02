@@ -17,9 +17,9 @@ namespace GestaoPedidosNotificacao.UI.Models
 
         public bool IsEmpty()
         {
-            if (!EntidadeId.isID()) return false;
+            if (EntidadeId.isID()) return false;
             if (NumProcesso != null) return false;
-            if (!EstadoId.isID()) return false;
+            if (EstadoId.isID()) return false;
             if (DataFacStart != null) return false;
             if (DataPagStart != null) return false;
 
