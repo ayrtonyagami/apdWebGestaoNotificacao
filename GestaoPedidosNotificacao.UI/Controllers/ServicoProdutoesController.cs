@@ -10,7 +10,7 @@ using GestaoPedidosNotificacao.UI.Entities;
 
 namespace GestaoPedidosNotificacao.UI.Controllers
 {
-    public class ServicoProdutoesController : Controller
+    public class ServicoProdutoesController : AppBaseController
     {
         private GestaoPedidosNotificacaoDBEntities db = new GestaoPedidosNotificacaoDBEntities();
 

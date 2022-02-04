@@ -9,7 +9,7 @@ using System.Web.Security;
 
 namespace GestaoPedidosNotificacao.UI.Controllers
 {
-    public class ContaController : Controller
+    public class ContaController : AppBaseController
     {
         private GestaoPedidosNotificacaoDBEntities db = new GestaoPedidosNotificacaoDBEntities();
 
@@ -22,6 +22,8 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         [HttpGet]
         public ActionResult Login()
         {
+            Session["UserName"] = null;
+            Session["IsAutorizated"] = null;
             return View();
         }
 
@@ -43,6 +45,9 @@ namespace GestaoPedidosNotificacao.UI.Controllers
                         throw new Exception("Utilizador sem acesso!");
 
                     FormsAuthentication.SetAuthCookie(logUsr.Id.ToString(), model.RememberMe);
+
+                    Session["UserName"] = logUsr.Nome;
+                    Session["IsAutorizated"] = true;
 
                     return RedirectToAction("Index","Home");
                 }

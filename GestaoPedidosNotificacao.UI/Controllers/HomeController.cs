@@ -8,11 +8,13 @@ using System.Web.Mvc;
 
 namespace GestaoPedidosNotificacao.UI.Controllers
 {
-    public class HomeController : Controller
+    [Authorize]
+    public class HomeController : AppBaseController
     {
         private GestaoPedidosNotificacaoDBEntities db = new GestaoPedidosNotificacaoDBEntities();
         public ActionResult Index()
         {
+            ValidateAutorization();
             return View();
         }
 

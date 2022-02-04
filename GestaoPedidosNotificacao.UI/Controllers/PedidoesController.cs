@@ -11,7 +11,7 @@ using GestaoPedidosNotificacao.UI.Models;
 
 namespace GestaoPedidosNotificacao.UI.Controllers
 {
-    public class PedidoesController : Controller
+    public class PedidoesController : AppBaseController
     {
         private GestaoPedidosNotificacaoDBEntities db = new GestaoPedidosNotificacaoDBEntities();
 
@@ -23,7 +23,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         //    return View(pedidos.ToList());
         //}
         
-        public ActionResult Index(bool toClean = false, [Bind(Include = "EntidadeId,EstadoId,NumProcesso,DataFacStart,DataFacEnd,DataPagStart,DataPagEnd")] SearchPedidosModel search = null)
+        public ActionResult Index(bool toClean = false, [Bind(Include = "EntidadeNome,EstadoId,NumProcesso,DataFacStart,DataFacEnd,DataPagStart,DataPagEnd")] SearchPedidosModel search = null)
         {
             if(search == null || search.IsEmpty() || toClean)
             {
@@ -34,7 +34,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
 
             var query = db.Pedidos.Where(x=> x.EntidadeId != null);
 
-            if (search.EntidadeId.isID()) query = query.Where(x => x.EntidadeId == search.EntidadeId);
+            if (search.EntidadeNome.HasValue()) query = query.Where(x => x.Entidade.Denoninacao.Contains(search.EntidadeNome));
             if (search.EstadoId.isID()) query = query.Where(x => x.EstadoId == search.EstadoId);
             if (search.NumProcesso.HasValue()) query = query.Where(x => x.NumProcesso == search.NumProcesso);
 
@@ -84,8 +84,12 @@ namespace GestaoPedidosNotificacao.UI.Controllers
                 Entidade entidade = db.Entidades.FirstOrDefault(x=> x.Id == entidadeId);
                 if (entidade == null) return View();
 
+
                 ViewBag.FromEntidade = true;
                 Pedido model = new Pedido();
+
+                int utilizadorId = int.Parse(User.Identity.Name);
+                model.UtilizadorId = utilizadorId;
                 model.Entidade = entidade;
                 model.EntidadeId = entidadeId;
 

@@ -16,9 +16,9 @@
 
         <div class="row">
             <div class="col-md-4">
-                @Html.LabelFor(model => search.EntidadeId, htmlAttributes: new { @class = "control-label" })
+                @Html.LabelFor(model => search.EntidadeNome, htmlAttributes: new { @class = "control-label" })
                 <div class="">
-                    @Html.DropDownList("EntidadeId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.Editor("EntidadeNome", new { htmlAttributes = new { @class = "form-control" } })
                 </div>
             </div>
 
