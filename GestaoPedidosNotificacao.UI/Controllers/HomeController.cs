@@ -130,5 +130,31 @@ namespace GestaoPedidosNotificacao.UI.Controllers
             return PartialView("_PedidosStatusDonut", donut);
 
         }
+
+
+        [ChildActionOnly]
+        public ActionResult _FinalidadesProcesso()
+        {
+
+            ListFinalidadesProgressoModel progresso = new ListFinalidadesProgressoModel();
+
+            var liResult = db.ServicoProdutoes;
+
+            progresso.Finalidades = new List<FinalidadesProgressoModel>();
+
+            foreach (var item in liResult)
+            {
+                var card = new FinalidadesProgressoModel();
+                card.Nome = item.Descricao;
+                card.Prec = item.Pedidos.Count(x => x.DataFactura.Value.Year == DateTime.Now.Year);
+                progresso.Finalidades.Add(card);
+            }
+
+            progresso.CalcularPercentange();
+            progresso.Finalidades = progresso.Finalidades.OrderByDescending(x => x.Prec).ToList();
+
+            return PartialView("_FinalidadesProcesso", progresso);
+
+        }
     }
 }

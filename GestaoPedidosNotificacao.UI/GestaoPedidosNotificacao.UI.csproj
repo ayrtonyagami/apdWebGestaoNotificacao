@@ -187,6 +187,7 @@
     <Compile Include="Models\AppBaseController.cs" />
     <Compile Include="Models\EntidadesDetailsView.cs" />
     <Compile Include="Models\ExtensionModels.cs" />
+    <Compile Include="Models\FinalidadesComponenteModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\PedidoModel.cs" />
     <Compile Include="Models\PedidosAnualChartModel.cs" />
@@ -2140,6 +2141,7 @@
     <Content Include="Views\Home\_PedidosAnualChart.cshtml" />
     <Content Include="Views\Home\_PedidosMensalPagasChart.cshtml" />
     <Content Include="Views\Home\_PedidosStatusDonut.cshtml" />
+    <Content Include="Views\Home\_FinalidadesProcesso.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
