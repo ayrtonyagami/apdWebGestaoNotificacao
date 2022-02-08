@@ -9,6 +9,13 @@ namespace GestaoPedidosNotificacao.UI.Models
     {
         public string StatusName { get; set; }
         public decimal PercStatus { get; set; }
+
+        public void Calcular(decimal total)
+        {
+            var result = (this.PercStatus * 100) / total;
+            this.PercStatus = decimal.Round(result, 1);
+        }
+
     }
 
 
@@ -23,7 +30,7 @@ namespace GestaoPedidosNotificacao.UI.Models
 
             this.PedidosAnual.ForEach(x =>
             {
-                x.PercStatus = (x.PercStatus * 100) / total;
+                x.Calcular(total);
             });
 
         }

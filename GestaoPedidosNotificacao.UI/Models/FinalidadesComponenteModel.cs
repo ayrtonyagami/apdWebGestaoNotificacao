@@ -28,7 +28,8 @@ namespace GestaoPedidosNotificacao.UI.Models
 
         public void Calcular(decimal total)
         {
-            this.Prec = (this.Prec * 100) / total;
+            var result = (this.Prec * 100) / total;
+            this.Prec = decimal.Round(result, 1);
         }
     }
 
