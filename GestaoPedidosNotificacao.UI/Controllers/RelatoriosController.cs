@@ -8,6 +8,8 @@ using PagedList;
 using System.Data;
 using System.Data.Entity;
 using System.Net;
+using GestaoPedidosNotificacao.UI.Repositories;
+using GestaoPedidosNotificacao.UI.Models;
 
 namespace GestaoPedidosNotificacao.UI.Controllers
 {
@@ -33,24 +35,55 @@ namespace GestaoPedidosNotificacao.UI.Controllers
             return new Rotativa.ActionAsPdf(nameof(EntidadesToPrint));
         }
 
-        public ActionResult NotificacoesToPrint()
+        public ActionResult NotificacoesPageFiltro()
         {
-            var pedidosFull = db.Pedidos.Include(p => p.Entidade).Include(p => p.Status).Include(p => p.Utilizador);
-            return View(pedidosFull.ToList());
-        }
-        public ActionResult PrintNotificacoes()
-        {
-            return new Rotativa.ActionAsPdf(nameof(NotificacoesToPrint));
+            FillListViewBag();
+            return View();
         }
 
-        public ActionResult PrintPainel()
+        public ActionResult NotificacoesToPrint(SearchPedidosModel search = null)
         {
-            var result = new Rotativa.UrlAsPdf(Url.Action("Index", "Home"));
-            
+            PedidosRepository pedidoRepo = new PedidosRepository();
+
+            bool all = search == null;
+
+            var result = pedidoRepo.Buscar(search, all);
+            //var pedidosFull = db.Pedidos.Include(p => p.Entidade).Include(p => p.Status).Include(p => p.Utilizador);
+            return View(result);
+        }
+        public ActionResult PrintNotificacoes([Bind(Include = "EntidadeNome,EstadoId,NumProcesso,DataFacStart,DataFacEnd,DataPagStart,DataPagEnd")] SearchPedidosModel search = null)
+        {
+            return new Rotativa.ActionAsPdf(nameof(NotificacoesToPrint), search);
+        }
+
+        public ActionResult PainelToPrint()
+        {
+            return View();
+        }
+        public ActionResult PrintPainel()
+        {   
+
+            var result = new Rotativa.ActionAsImage(nameof(PainelToPrint));
+
             return result;
         }
 
 
 
+
+
+
+
+
+
+
+
+        public void FillListViewBag()
+        {            
+            var status = db.Status.ToList();            
+            status.Insert(0, (new Status { Id = -1, Descricao = "Selecionar" }));            
+            ViewBag.EstadoId = new SelectList(status, "Id", "Descricao");
+            return;
+        }
     }
 }

@@ -215,6 +215,7 @@
     <Compile Include="Models\SearchPedidosModel.cs" />
     <Compile Include="Models\StatusCardModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\PedidosRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.css" />
@@ -2174,6 +2175,8 @@
     <Content Include="Views\Relatorios\_templateReposrt.cshtml" />
     <Content Include="Views\Relatorios\EntidadesToPrint.cshtml" />
     <Content Include="Views\Relatorios\NotificacoesToPrint.cshtml" />
+    <Content Include="Views\Relatorios\PainelToPrint.cshtml" />
+    <Content Include="Views\Relatorios\NotificacoesPageFiltro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
