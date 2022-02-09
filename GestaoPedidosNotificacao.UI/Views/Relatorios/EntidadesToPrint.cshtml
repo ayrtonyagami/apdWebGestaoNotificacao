@@ -1,0 +1,49 @@
+﻿@model IEnumerable<GestaoPedidosNotificacao.UI.Entities.Entidade>
+
+@{
+    ViewBag.Title = "Lista de Entidades";
+    Layout = "~/Views/Relatorios/_templateReposrt.cshtml";
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Denoninacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntidadeTipoId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataEntidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Denoninacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EntidadeTipo.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataEntidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefone)
+        </td>
+    </tr>
+}
+
+</table>

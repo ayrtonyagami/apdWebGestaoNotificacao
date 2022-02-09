@@ -13,6 +13,9 @@
     <div class="card-body">
         <span class="float-right"><br />
             @Html.ActionLink("Cadastrar Nova", "Create", null, new { @class = "btn btn-primary" })
+            <a href="@Url.Action("PrintEntidades", "Relatorios")" class="btn btn-success">
+                <i class="fas fa-download fa-sm text-white-50"></i> Gerar Relatório
+            </a>
         </span>
         <table id="dataTable" class="table table-bordered dataTable" style="width:100%">
             <thead>

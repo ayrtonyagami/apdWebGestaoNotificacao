@@ -5,7 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
-using Rotativa;
+using System.Data;
+using System.Data.Entity;
+using System.Net;
 
 namespace GestaoPedidosNotificacao.UI.Controllers
 {
@@ -20,30 +22,35 @@ namespace GestaoPedidosNotificacao.UI.Controllers
             return View();
         }
 
-
-        public ActionResult RelatorioPedidos(int? pagina, Boolean? pdf)
+        public ActionResult EntidadesToPrint()
         {
-            var listaPedidos = db.Pedidos.OrderByDescending(c => c.DataFactura).ToList();
-
-            if (pdf != true)
-            {
-                int numeroRegistros = 5;
-                int numeroPagina = (pagina ?? 1);
-                return View(listaPedidos.ToPagedList(numeroPagina, numeroRegistros));
-            }
-            else
-            {
-                int pagNumero = 1;
-                
-                var relatorioPDF = new ViewAsPdf
-                {
-                    ViewName = "RelatorioPedidos",
-                    FileName = "RelatorioPedidos",
-                    IsGrayScale = true,
-                    Model = listaPedidos.ToPagedList(pagNumero, listaPedidos.Count)
-                };
-                return relatorioPDF;
-            }
+            var entidades = db.Entidades.Include(x => x.EntidadeTipo);
+            return View(entidades.ToList());
         }
+
+        public ActionResult PrintEntidades()
+        {
+            return new Rotativa.ActionAsPdf(nameof(EntidadesToPrint));
+        }
+
+        public ActionResult NotificacoesToPrint()
+        {
+            var pedidosFull = db.Pedidos.Include(p => p.Entidade).Include(p => p.Status).Include(p => p.Utilizador);
+            return View(pedidosFull.ToList());
+        }
+        public ActionResult PrintNotificacoes()
+        {
+            return new Rotativa.ActionAsPdf(nameof(NotificacoesToPrint));
+        }
+
+        public ActionResult PrintPainel()
+        {
+            var result = new Rotativa.UrlAsPdf(Url.Action("Index", "Home"));
+            
+            return result;
+        }
+
+
+
     }
 }

@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GestaoPedidosNotificacao.UI</RootNamespace>
     <AssemblyName>GestaoPedidosNotificacao.UI</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -68,8 +69,17 @@
     <Reference Include="Rotativa">
       <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
     </Reference>
+    <Reference Include="Rotativa.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.Core.2.0.0\lib\net45\Rotativa.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Rotativa.MVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.MVC.2.0.3\lib\net45\Rotativa.MVC.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -77,11 +87,8 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -123,6 +130,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -241,6 +249,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="img\APD angola copy.png" />
+    <Content Include="img\APD angola preto copy.png" />
     <Content Include="img\pageLogin APD copy.png" />
     <Content Include="img\undraw_posting_photo.svg" />
     <Content Include="img\undraw_profile.svg" />
@@ -256,9 +265,8 @@
     <Content Include="js\pageJs\datatables-demo.js" />
     <Content Include="js\sb-admin-2.js" />
     <Content Include="js\sb-admin-2.min.js" />
-    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
-    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
-    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\msvcp120.dll" />
+    <Content Include="Rotativa\msvcr120.dll" />
     <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -2105,7 +2113,9 @@
     <Content Include="vendor\jquery\jquery.min.js" />
     <Content Include="vendor\jquery\jquery.slim.js" />
     <Content Include="vendor\jquery\jquery.slim.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -2160,11 +2170,14 @@
     <Content Include="Views\Home\_PedidosMensalPagasChart.cshtml" />
     <Content Include="Views\Home\_PedidosStatusDonut.cshtml" />
     <Content Include="Views\Home\_FinalidadesProcesso.cshtml" />
+    <Content Include="Views\Relatorios\Index.cshtml" />
+    <Content Include="Views\Relatorios\_templateReposrt.cshtml" />
+    <Content Include="Views\Relatorios\EntidadesToPrint.cshtml" />
+    <Content Include="Views\Relatorios\NotificacoesToPrint.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="scss\" />
-    <Folder Include="Views\Relatorios\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>APD - @ViewBag.Title</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        .img-logo {
+            width: 250px;
+            height: 80px;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        footer {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .titulo {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="~/img/APD angola preto copy.png" class="img-logo" />
+    </header>
+    <div>
+
+        <div class="titulo">
+            <h3>@ViewBag.Title</h3>
+        </div>
+
+        @RenderBody()
+
+    </div>
+    <footer>
+
+        Agência de Procteção de Dados - APD - @DateTime.Now.ToString("dd 'de' MMMM 'de' yyyy 'às' hh:mm:ss");
+    </footer>
+</body>
+</html>

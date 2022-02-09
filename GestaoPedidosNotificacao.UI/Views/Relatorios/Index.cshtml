@@ -1,0 +1,126 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>APD - @ViewBag.Title</title>
+    <style>
+        
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        .img-logo{
+            width: 250px;
+            height: 80px;
+        }
+        header{
+            text-align:center;
+        }
+        footer{
+            padding: 30px;
+            text-align:center;
+        }
+        .titulo{
+            margin-top:10px;
+            margin-bottom:10px;            
+            padding-top:5px;
+            padding-bottom:5px;
+            border:1px solid black;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="~/img/APD angola preto copy.png" class="img-logo" />
+    </header>
+    <div>
+
+        <div class="titulo">
+            <h3>Relatório de Entidades em 2022</h3>
+        </div>
+
+
+        <table>
+            <tr>
+                <th>Company</th>
+                <th>Contact</th>
+                <th>Country</th>
+            </tr>
+            <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>Centro comercial Moctezuma</td>
+                <td>Francisco Chang</td>
+                <td>Mexico</td>
+            </tr>
+            <tr>
+                <td>Ernst Handel</td>
+                <td>Roland Mendel</td>
+                <td>Austria</td>
+            </tr>
+            <tr>
+                <td>Island Trading</td>
+                <td>Helen Bennett</td>
+                <td>UK</td>
+            </tr>
+            <tr>
+                <td>Laughing Bacchus Winecellars</td>
+                <td>Yoshi Tannamuri</td>
+                <td>Canada</td>
+            </tr>
+            <tr>
+                <td>Island Trading</td>
+                <td>Helen Bennett</td>
+                <td>UK</td>
+            </tr>
+            <tr>
+                <td>Laughing Bacchus Winecellars</td>
+                <td>Yoshi Tannamuri</td>
+                <td>Canada</td>
+            </tr>
+            <tr>
+                <td>Island Trading</td>
+                <td>Helen Bennett</td>
+                <td>UK</td>
+            </tr>
+            <tr>
+                <td>Laughing Bacchus Winecellars</td>
+                <td>Yoshi Tannamuri</td>
+                <td>Canada</td>
+            </tr>
+            <tr>
+                <td>Magazzini Alimentari Riuniti</td>
+                <td>Giovanni Rovelli</td>
+                <td>Italy</td>
+            </tr>
+        </table>
+
+
+    </div>
+    <footer>
+        
+        Agência de Procteção de Dados - APD - @DateTime.Now.ToString("dd 'de' MMMM 'de' yyyy 'às' hh:mm:ss");
+    </footer>
+</body>
+</html>
