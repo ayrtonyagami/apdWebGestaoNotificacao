@@ -9,7 +9,8 @@
     <Property Name="EntidadeTipoId" Type="int" />
     <Property Name="DataEntidade" Type="datetime" />
     <Property Name="Email" Type="varchar" MaxLength="50" />
-    <Property Name="Telefone" Type="varchar" MaxLength="50" />
+    <Property Name="Telefone" Type="varchar" MaxLength="14" />
+    <Property Name="NIF" Type="varchar" MaxLength="15" />
   </EntityType>
   <EntityType Name="EntidadeTipo">
     <Key>

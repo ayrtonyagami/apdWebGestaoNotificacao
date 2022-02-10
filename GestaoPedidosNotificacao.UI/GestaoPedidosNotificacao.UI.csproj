@@ -212,9 +212,11 @@
     <Compile Include="Models\PedidoModel.cs" />
     <Compile Include="Models\PedidosAnualChartModel.cs" />
     <Compile Include="Models\PedidosStatusDonutModel.cs" />
+    <Compile Include="Models\SearchEntidadeModel.cs" />
     <Compile Include="Models\SearchPedidosModel.cs" />
     <Compile Include="Models\StatusCardModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\EntidadesRepository.cs" />
     <Compile Include="Repositories\PedidosRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2177,6 +2179,7 @@
     <Content Include="Views\Relatorios\NotificacoesToPrint.cshtml" />
     <Content Include="Views\Relatorios\PainelToPrint.cshtml" />
     <Content Include="Views\Relatorios\NotificacoesPageFiltro.cshtml" />
+    <Content Include="Views\Relatorios\EntidadesPageFiltro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

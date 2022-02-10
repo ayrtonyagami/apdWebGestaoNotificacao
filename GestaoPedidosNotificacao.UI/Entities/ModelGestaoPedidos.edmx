@@ -14,7 +14,8 @@
           <Property Name="EntidadeTipoId" Type="int" />
           <Property Name="DataEntidade" Type="datetime" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
-          <Property Name="Telefone" Type="varchar" MaxLength="50" />
+          <Property Name="Telefone" Type="varchar" MaxLength="14" />
+          <Property Name="NIF" Type="varchar" MaxLength="15" />
         </EntityType>
         <EntityType Name="EntidadeTipo">
           <Key>
@@ -393,9 +394,10 @@
           <Property Name="EntidadeTipoId" Type="Int32" />
           <Property Name="DataEntidade" Type="DateTime" Precision="3" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Telefone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefone" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EntidadeTipo" Relationship="GestaoPedidosNotificacaoDBModel.FK_Entidade_EntidadeTipo" FromRole="Entidade" ToRole="EntidadeTipo" />
           <NavigationProperty Name="Pedidos" Relationship="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Entidade" FromRole="Entidade" ToRole="Pedido" />
+          <Property Name="NIF" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_Entidade_EntidadeTipo">
           <End Type="GestaoPedidosNotificacaoDBModel.EntidadeTipo" Role="EntidadeTipo" Multiplicity="0..1" />
@@ -503,6 +505,7 @@
           <EntitySetMapping Name="Entidades">
             <EntityTypeMapping TypeName="GestaoPedidosNotificacaoDBModel.Entidade">
               <MappingFragment StoreEntitySet="Entidade">
+                <ScalarProperty Name="NIF" ColumnName="NIF" />
                 <ScalarProperty Name="Telefone" ColumnName="Telefone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="DataEntidade" ColumnName="DataEntidade" />

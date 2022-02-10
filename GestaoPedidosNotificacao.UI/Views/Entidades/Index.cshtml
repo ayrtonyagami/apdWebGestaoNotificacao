@@ -3,7 +3,80 @@
 @{
     ViewBag.Title = "Entidades";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var search = new GestaoPedidosNotificacao.UI.Models.SearchEntidadeModel(ViewBag.Search);
 }
+
+
+<div class="card mb-4 ml-3 mr-3">
+
+    <div class="card-body">
+        @using (Html.BeginForm(new { toClean = false }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row">
+                <div class="col-md-4">
+                    @Html.LabelFor(model => search.Nome, htmlAttributes: new { @class = "control-label" })
+                    <div class="">
+                        @Html.EditorFor(model => search.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    @Html.LabelFor(model => search.NIF, htmlAttributes: new { @class = "control-label" })
+                    <div class="">
+                        @Html.Editor("NIF", new { htmlAttributes = new { @class = "form-control" } })
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(model => search.EntidadeTipoId, htmlAttributes: new { @class = "control-label" })
+                    <div class="">
+                        @Html.DropDownList("EntidadeTipoId", null, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    @Html.LabelFor(model => search.Telefone, htmlAttributes: new { @class = "control-label" })
+                    <div class="">
+                        @Html.Editor("Telefone", new { htmlAttributes = new { @class = "form-control" } })
+
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    @Html.LabelFor(model => search.DataCadastroStart, htmlAttributes: new { @class = "control-label" })
+                    <div class="">
+                        @Html.Editor("DataCadastroStart", new { htmlAttributes = new { @class = "form-control" } })
+
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    @Html.LabelFor(model => search.DataCadastroEnd, htmlAttributes: new { @class = "control -label" })
+                    <div class="">
+                        @Html.Editor("DataCadastroEnd", new { htmlAttributes = new { @class = "form-control" } })
+
+                    </div>
+                </div>
+
+                <div class="col-md-4 ">
+                    @Html.Label("Opções", htmlAttributes: new { @class = "control-label" })
+                    <div class="">
+                        <input type="submit" value="Procura Avançada" class="btn btn-primary" />
+                        @Html.ActionLink("Limpar Resultado", "Index", new { toClean = true }, new { @class = "btn btn-danger" })
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        }
+    </div>
+</div>
 
 
 
@@ -23,11 +96,14 @@
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.Denoninacao): activate to sort column ascending">
                         @Html.DisplayNameFor(model => model.Denoninacao)
                     </th>
-                    <th class="sorting" tabindex="2" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.Denoninacao): activate to sort column ascending">
-                        @Html.DisplayNameFor(model => model.DataEntidade)
+                    <th class="sorting" tabindex="2" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.NIF): activate to sort column ascending">
+                        @Html.DisplayNameFor(model => model.NIF)
                     </th>
-                    <th class="sorting" tabindex="3" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.Denoninacao): activate to sort column ascending">
+                    <th class="sorting" tabindex="3" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.EntidadeTipo.Nome): activate to sort column ascending">
                         @Html.DisplayNameFor(model => model.EntidadeTipo.Nome)
+                    </th>
+                    <th class="sorting" tabindex="2" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="@Html.DisplayNameFor(model => model.DataEntidade): activate to sort column ascending">
+                        @Html.DisplayNameFor(model => model.DataEntidade)
                     </th>
                     <th style="width:180px !important;">Acções</th>
                 </tr>
@@ -41,10 +117,13 @@
                             @Html.DisplayFor(modelItem => item.Denoninacao)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.DataEntidade)
+                            @Html.DisplayFor(modelItem => item.NIF)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.EntidadeTipo.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataEntidade)
                         </td>
                         <td>
                             <a href="@Url.Action("Details","Entidades", new { id=item.Id })" class="btn btn-primary btn-circle">

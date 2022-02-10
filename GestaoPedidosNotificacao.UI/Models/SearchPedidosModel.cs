@@ -8,6 +8,35 @@ namespace GestaoPedidosNotificacao.UI.Models
 {
     public class SearchPedidosModel
     {
+        public SearchPedidosModel()
+        {
+        }
+        public SearchPedidosModel(object model)
+        {
+            if (model == null) return;
+            SearchPedidosModel search = (SearchPedidosModel)model;
+            this.DataFacEnd = search.DataFacEnd;
+            this.DataFacStart = search.DataFacStart;
+            this.DataPagEnd = search.DataPagEnd;
+            this.DataPagStart = search.DataPagStart;
+            this.EntidadeId = search.EntidadeId;
+            this.EntidadeNome = search.EntidadeNome;
+            this.EstadoId = search.EstadoId;
+            this.NumProcesso = search.NumProcesso;
+        }
+        public SearchPedidosModel(SearchPedidosModel model)
+        {
+            if (model == null) return;
+            SearchPedidosModel search = model;
+            this.DataFacEnd = search.DataFacEnd;
+            this.DataFacStart = search.DataFacStart;
+            this.DataPagEnd = search.DataPagEnd;
+            this.DataPagStart = search.DataPagStart;
+            this.EntidadeId = search.EntidadeId;
+            this.EntidadeNome = search.EntidadeNome;
+            this.EstadoId = search.EstadoId;
+            this.NumProcesso = search.NumProcesso;
+        }
 
         [Display(Name = "Id Entidade")]
         public int? EntidadeId { get; set; }

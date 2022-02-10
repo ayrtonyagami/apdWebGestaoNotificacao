@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GestaoPedidosNotificacao.UI.Entities;
+using GestaoPedidosNotificacao.UI.Repositories;
+using GestaoPedidosNotificacao.UI.Models;
 
 namespace GestaoPedidosNotificacao.UI.Controllers
 {
@@ -15,10 +17,23 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         private GestaoPedidosNotificacaoDBEntities db = new GestaoPedidosNotificacaoDBEntities();
 
         // GET: Entidades
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var entidades = db.Entidades.Include(e => e.EntidadeTipo);
+        //    return View(entidades.ToList());
+        //}
+
+        public ActionResult Index(bool toClean = false, [Bind(Include = "search_Nome,EntidadeTipoId,Telefone,NIF,DataCadastroStart,DataCadastroEnd")] SearchEntidadeModel search = null)
         {
-            var entidades = db.Entidades.Include(e => e.EntidadeTipo);
-            return View(entidades.ToList());
+            EntidadesRepository entidadesRepo = new EntidadesRepository();
+
+            var result = entidadesRepo.Buscar(search, toClean);
+
+            FillListEntidadeViewBag();
+
+            ViewBag.Search = search;
+
+            return View(result);
         }
 
         // GET: Entidades/Details/5
@@ -40,7 +55,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         // GET: Entidades/Create
         public ActionResult Create()
         {
-            ViewBag.EntidadeTipoId = new SelectList(db.EntidadeTipoes, "Id", "Nome");
+            FillListEntidadeViewBag();
             return View();
         }
 
@@ -49,7 +64,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Denoninacao,Email,Telefone,NumeroProcesso,EntidadeTipoId,DataEntidade")] Entidade entidade)
+        public ActionResult Create([Bind(Include = "Id,Denoninacao,Email,Telefone,NIF,EntidadeTipoId,DataEntidade")] Entidade entidade)
         {
 
             if (ModelState.IsValid)
@@ -59,7 +74,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.EntidadeTipoId = new SelectList(db.EntidadeTipoes, "Id", "Nome", entidade.EntidadeTipoId);
+            FillListEntidadeViewBag();
             return View(entidade);
         }
 
@@ -75,7 +90,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.EntidadeTipoId = new SelectList(db.EntidadeTipoes, "Id", "Nome", entidade.EntidadeTipoId);
+            FillListEntidadeViewBag();
             return View(entidade);
         }
 
@@ -84,7 +99,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Denoninacao,Email,Telefone,NumeroProcesso,EntidadeTipoId,DataEntidade")] Entidade entidade)
+        public ActionResult Edit([Bind(Include = "Id,Denoninacao,Email,Telefone,NIF,EntidadeTipoId,DataEntidade")] Entidade entidade)
         {
             if (ModelState.IsValid)
             {
@@ -129,6 +144,14 @@ namespace GestaoPedidosNotificacao.UI.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public void FillListEntidadeViewBag()
+        {
+            var tipo = db.EntidadeTipoes.ToList();
+            tipo.Insert(0, (new EntidadeTipo { Id = -1, Nome = "Selecionar" }));
+            ViewBag.EntidadeTipoId = new SelectList(tipo, "Id", "Nome");
+            return;
         }
     }
 }

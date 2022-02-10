@@ -24,20 +24,34 @@ namespace GestaoPedidosNotificacao.UI.Controllers
             return View();
         }
 
-        public ActionResult EntidadesToPrint()
+        #region Entidades
+        public ActionResult EntidadesPageFiltro()
         {
-            var entidades = db.Entidades.Include(x => x.EntidadeTipo);
-            return View(entidades.ToList());
+            FillListEntidadeViewBag();
+            return View();
         }
 
-        public ActionResult PrintEntidades()
+        public ActionResult EntidadesToPrint(SearchEntidadeModel search)
         {
-            return new Rotativa.ActionAsPdf(nameof(EntidadesToPrint));
+            EntidadesRepository entidadesRepo = new EntidadesRepository();
+
+            bool all = search == null;
+
+            var entidades = entidadesRepo.Buscar(search,all);
+
+            return View(entidades);
         }
 
+        public ActionResult PrintEntidades([Bind(Include = "Nome,EntidadeTipoId,Telefone,NIF,DataCadastroStart,DataCadastroEnd")] SearchEntidadeModel search = null)
+        {
+            return new Rotativa.ActionAsPdf(nameof(EntidadesToPrint), search);
+        }
+        #endregion Entidades
+
+        #region Notificacoes
         public ActionResult NotificacoesPageFiltro()
         {
-            FillListViewBag();
+            FillListNotificacoesViewBag();
             return View();
         }
 
@@ -48,7 +62,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
             bool all = search == null;
 
             var result = pedidoRepo.Buscar(search, all);
-            //var pedidosFull = db.Pedidos.Include(p => p.Entidade).Include(p => p.Status).Include(p => p.Utilizador);
+
             return View(result);
         }
         public ActionResult PrintNotificacoes([Bind(Include = "EntidadeNome,EstadoId,NumProcesso,DataFacStart,DataFacEnd,DataPagStart,DataPagEnd")] SearchPedidosModel search = null)
@@ -56,6 +70,8 @@ namespace GestaoPedidosNotificacao.UI.Controllers
             return new Rotativa.ActionAsPdf(nameof(NotificacoesToPrint), search);
         }
 
+
+        #endregion Notificacoes
         public ActionResult PainelToPrint()
         {
             return View();
@@ -77,8 +93,16 @@ namespace GestaoPedidosNotificacao.UI.Controllers
 
 
 
+        public void FillListEntidadeViewBag()
+        {
+            var tipo = db.EntidadeTipoes.ToList();
+            tipo.Insert(0, (new EntidadeTipo { Id = -1, Nome = "Selecionar" }));            
+            ViewBag.EntidadeTipoId = new SelectList(tipo, "Id", "Nome");
+            return;
+        }
 
-        public void FillListViewBag()
+
+        public void FillListNotificacoesViewBag()
         {            
             var status = db.Status.ToList();            
             status.Insert(0, (new Status { Id = -1, Descricao = "Selecionar" }));            

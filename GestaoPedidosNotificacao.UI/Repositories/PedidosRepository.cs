@@ -32,14 +32,14 @@ namespace GestaoPedidosNotificacao.UI.Repositories
                 query = query.Where(x => DbFunctions.TruncateTime(x.DataFactura.Value) >= DbFunctions.TruncateTime(search.DataFacStart.Value)
                 && DbFunctions.TruncateTime(x.DataFactura.Value) <= DbFunctions.TruncateTime(search.DataFacEnd.Value));
             else if (search.DataFacStart != null)
-                query = query.Where(x => DbFunctions.TruncateTime(x.DataFactura.Value) == search.DataFacStart.Value.Date);
+                query = query.Where(x => DbFunctions.TruncateTime(x.DataFactura.Value) == DbFunctions.TruncateTime(search.DataFacStart.Value));
 
             //Data de pagamento
             if (search.DataPagStart != null && search.DataPagEnd != null)
                 query = query.Where(x => DbFunctions.TruncateTime(x.DataPagamento.Value) >= DbFunctions.TruncateTime(search.DataPagStart.Value)
                 && DbFunctions.TruncateTime(x.DataPagamento.Value) <= DbFunctions.TruncateTime(search.DataPagEnd.Value));
             else if (search.DataPagStart != null)
-                query = query.Where(x => DbFunctions.TruncateTime(x.DataFactura.Value) == search.DataPagStart.Value.Date);
+                query = query.Where(x => DbFunctions.TruncateTime(x.DataFactura.Value) == DbFunctions.TruncateTime(search.DataPagStart.Value));
 
 
 

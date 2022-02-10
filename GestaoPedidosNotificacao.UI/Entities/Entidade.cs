@@ -26,6 +26,7 @@ namespace GestaoPedidosNotificacao.UI.Entities
         public Nullable<System.DateTime> DataEntidade { get; set; }
         public string Email { get; set; }
         public string Telefone { get; set; }
+        public string NIF { get; set; }
     
         public virtual EntidadeTipo EntidadeTipo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
