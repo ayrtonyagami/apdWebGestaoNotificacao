@@ -47,6 +47,13 @@
     <Property Name="DataFactura" Type="datetime" />
     <Property Name="DataPagamento" Type="datetime" />
   </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="varchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="ServicoProduto">
     <Key>
       <PropertyRef Name="Id" />
@@ -78,6 +85,7 @@
     <Property Name="Funcao" Type="varchar" MaxLength="50" />
     <Property Name="IsActive" Type="bit" />
     <Property Name="DataModificacao" Type="datetime" />
+    <Property Name="RoleId" Type="int" />
   </EntityType>
   <Association Name="FK_Entidade_EntidadeTipo">
     <End Role="EntidadeTipo" Type="Self.EntidadeTipo" Multiplicity="0..1" />
@@ -163,11 +171,24 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Utilizador_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Utilizador">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="GestaoPedidosNotificacaoDBModelStoreContainer">
     <EntitySet Name="Entidade" EntityType="Self.Entidade" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EntidadeTipo" EntityType="Self.EntidadeTipo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pedidos" EntityType="Self.Pedidos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PedidosHistorico" EntityType="Self.PedidosHistorico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ServicoProduto" EntityType="Self.ServicoProduto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Utilizador" EntityType="Self.Utilizador" Schema="dbo" store:Type="Tables" />
@@ -198,6 +219,10 @@
     <AssociationSet Name="FK_PedidosHistorico_Utilizador" Association="Self.FK_PedidosHistorico_Utilizador">
       <End Role="Utilizador" EntitySet="Utilizador" />
       <End Role="PedidosHistorico" EntitySet="PedidosHistorico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Utilizador_Role" Association="Self.FK_Utilizador_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Utilizador" EntitySet="Utilizador" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

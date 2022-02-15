@@ -192,6 +192,9 @@
     <Compile Include="Entities\PedidosHistorico.cs">
       <DependentUpon>ModelGestaoPedidos.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Role.cs">
+      <DependentUpon>ModelGestaoPedidos.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\ServicoProduto.cs">
       <DependentUpon>ModelGestaoPedidos.tt</DependentUpon>
     </Compile>
@@ -204,7 +207,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AppAuthorization.cs" />
     <Compile Include="Models\AppBaseController.cs" />
+    <Compile Include="Models\AppCustomValidator.cs" />
+    <Compile Include="Models\ChangePasswordModel.cs" />
     <Compile Include="Models\EntidadesDetailsView.cs" />
     <Compile Include="Models\ExtensionModels.cs" />
     <Compile Include="Models\FinalidadesComponenteModel.cs" />
@@ -2180,6 +2186,8 @@
     <Content Include="Views\Relatorios\PainelToPrint.cshtml" />
     <Content Include="Views\Relatorios\NotificacoesPageFiltro.cshtml" />
     <Content Include="Views\Relatorios\EntidadesPageFiltro.cshtml" />
+    <Content Include="Views\Conta\Perfil.cshtml" />
+    <Content Include="Views\Conta\MudarMinhaSenha.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

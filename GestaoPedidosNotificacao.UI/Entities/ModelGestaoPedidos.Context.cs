@@ -32,5 +32,6 @@ namespace GestaoPedidosNotificacao.UI.Entities
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<Utilizador> Utilizadors { get; set; }
         public virtual DbSet<Entidade> Entidades { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
     }
 }

@@ -38,6 +38,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         // GET: Utilizadors/Create
         public ActionResult Create()
         {
+            FillListViewBag(null);
             return View();
         }
 
@@ -46,7 +47,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,Senha,Email,Funcao,IsActive")] Utilizador utilizador)
+        public ActionResult Create([Bind(Include = "Id,Nome,Senha,Email,Funcao,IsActive,RoleId")] Utilizador utilizador)
         {
             if (ModelState.IsValid)
             {
@@ -55,7 +56,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            FillListViewBag(null);
             return View(utilizador);
         }
 
@@ -71,6 +72,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
             {
                 return HttpNotFound();
             }
+            FillListViewBag(utilizador);
             return View(utilizador);
         }
 
@@ -79,7 +81,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,Senha,Email,Funcao,IsActive")] Utilizador utilizador)
+        public ActionResult Edit([Bind(Include = "Id,Nome,Senha,Email,Funcao,IsActive,RoleId")] Utilizador utilizador)
         {
             if (ModelState.IsValid)
             {
@@ -88,6 +90,7 @@ namespace GestaoPedidosNotificacao.UI.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            FillListViewBag(null);
             return View(utilizador);
         }
 
@@ -124,6 +127,24 @@ namespace GestaoPedidosNotificacao.UI.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+
+
+        public void FillListViewBag(Utilizador utilizador)
+        {
+            var tipo = db.Roles.ToList();
+            tipo.Insert(0, (new Role { Id = -1, Descricao = "Selecionar" }));
+
+            if (utilizador == null)
+            {
+                ViewBag.RoleId = new SelectList(tipo, "Id", "Descricao");
+            }
+            else
+            {
+                ViewBag.RoleId = new SelectList(tipo, "Id", "Descricao", utilizador.RoleId);
+             
+            }
         }
     }
 }

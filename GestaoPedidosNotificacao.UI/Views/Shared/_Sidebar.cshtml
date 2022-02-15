@@ -1,4 +1,10 @@
-﻿<ul class="navbar-nav alda-bg sidebar sidebar-dark accordion" id="accordionSidebar">
+﻿@{ 
+    bool isAdmin = Session["Role"].ToString() == "Administrador";
+    bool isUsuario = Session["Role"].ToString() == "Usuário";
+    bool isRelatórios = Session["Role"].ToString() == "Relatórios";
+}
+
+<ul class="navbar-nav alda-bg sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index", "Home")">
         <div class="sidebar-brand-icon">
@@ -45,6 +51,8 @@
         </div>
     </li>*@
     <!-- Nav Item - Charts -->
+    @if (isAdmin || isUsuario)
+    {
     <li class="nav-item">
         <a class="nav-link" href="@Url.Action("Index", "Entidades")">
             <i class="fas fa-fw fa-chart-area"></i>
@@ -56,14 +64,17 @@
             <i class="fas fa-fw fa-table"></i>
             <span>Notificação</span>
         </a>
-    </li>    <!-- Nav Item - Tables -->
+    </li>  
+    }
+    @if (isAdmin)
+    {
     <li class="nav-item">
         <a class="nav-link" href="@Url.Action("Index", "ServicoProdutoes")">
             <i class="fas fa-fw fa-table"></i>
             <span>Finalidades</span>
         </a>
     </li>
-
+    }
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRelatorios"
            aria-expanded="true" aria-controls="collapseRelatorios">
@@ -82,6 +93,10 @@
     <!-- Divider -->
     @*<hr class="sidebar-divider">*@
     <!-- Heading -->
+
+    @if (isAdmin)
+    {
+
     <div class="sidebar-heading">
         Admin
     </div>
@@ -105,6 +120,7 @@
         </div>
     </li>
     <hr class="sidebar-divider d-none d-md-block">
+    }
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

@@ -9,7 +9,7 @@
 <div class="card mb-4 ml-3 mr-3">
 
     <div class="card-body">
-        @using (Html.BeginForm("PrintEntidades", "Relatorios"))
+        @using (Html.BeginForm("PrintEntidades", "Relatorios", FormMethod.Get, new { target = "_blank" }))
         {
             @Html.AntiForgeryToken()
 

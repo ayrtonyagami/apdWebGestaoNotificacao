@@ -44,6 +44,11 @@
       <End Role="Entidade" EntitySet="Entidades" />
       <End Role="Pedido" EntitySet="Pedidos" />
     </AssociationSet>
+    <EntitySet Name="Roles" EntityType="GestaoPedidosNotificacaoDBModel.Role" />
+    <AssociationSet Name="FK_Utilizador_Role" Association="GestaoPedidosNotificacaoDBModel.FK_Utilizador_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Utilizador" EntitySet="Utilizadors" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Pedido">
     <Key>
@@ -115,6 +120,8 @@
     <Property Name="DataModificacao" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Pedidos" Relationship="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Utilizador" FromRole="Utilizador" ToRole="Pedido" />
     <NavigationProperty Name="PedidosHistoricoes" Relationship="GestaoPedidosNotificacaoDBModel.FK_PedidosHistorico_Utilizador" FromRole="Utilizador" ToRole="PedidosHistorico" />
+    <Property Name="RoleId" Type="Int32" />
+    <NavigationProperty Name="Role" Relationship="GestaoPedidosNotificacaoDBModel.FK_Utilizador_Role" FromRole="Utilizador" ToRole="Role" />
   </EntityType>
   <Association Name="FK_Pedidos_Status">
     <End Type="GestaoPedidosNotificacaoDBModel.Status" Role="Status" Multiplicity="0..1" />
@@ -211,6 +218,26 @@
       </Principal>
       <Dependent Role="Pedido">
         <PropertyRef Name="EntidadeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Utilizadors" Relationship="GestaoPedidosNotificacaoDBModel.FK_Utilizador_Role" FromRole="Role" ToRole="Utilizador" />
+  </EntityType>
+  <Association Name="FK_Utilizador_Role">
+    <End Type="GestaoPedidosNotificacaoDBModel.Role" Role="Role" Multiplicity="0..1" />
+    <End Type="GestaoPedidosNotificacaoDBModel.Utilizador" Role="Utilizador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Utilizador">
+        <PropertyRef Name="RoleId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

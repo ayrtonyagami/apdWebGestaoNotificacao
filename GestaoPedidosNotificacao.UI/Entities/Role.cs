@@ -12,28 +12,18 @@ namespace GestaoPedidosNotificacao.UI.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Utilizador
+    public partial class Role
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Utilizador()
+        public Role()
         {
-            this.Pedidos = new HashSet<Pedido>();
-            this.PedidosHistoricoes = new HashSet<PedidosHistorico>();
+            this.Utilizadors = new HashSet<Utilizador>();
         }
     
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Senha { get; set; }
-        public string Email { get; set; }
-        public string Funcao { get; set; }
-        public Nullable<bool> IsActive { get; set; }
-        public Nullable<System.DateTime> DataModificacao { get; set; }
-        public Nullable<int> RoleId { get; set; }
+        public string Descricao { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pedido> Pedidos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PedidosHistorico> PedidosHistoricoes { get; set; }
-        public virtual Role Role { get; set; }
+        public virtual ICollection<Utilizador> Utilizadors { get; set; }
     }
 }

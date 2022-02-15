@@ -56,10 +56,12 @@
                                                     </label>
                                                 </div>
                                             </div>
-
+                                            
                                             @*@Html.ActionLink("Entrar", "Index", "Home", null, new { @class = "btn btn-primary btn-user btn-block" })*@
                                             <input type="submit" value="Entrar" class="btn btn-primary btn-user btn-block" />
                                             <br>
+
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     }
 
                                     <br>

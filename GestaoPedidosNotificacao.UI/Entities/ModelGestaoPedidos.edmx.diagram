@@ -19,6 +19,8 @@
         <EntityTypeShape EntityType="GestaoPedidosNotificacaoDBModel.Entidade" Width="1.5" PointX="3" PointY="4.875" />
         <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_Entidade_EntidadeTipo" />
         <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_Pedidos_Entidade" />
+        <EntityTypeShape EntityType="GestaoPedidosNotificacaoDBModel.Role" Width="1.5" PointX="9.5" PointY="5.5" />
+        <AssociationConnector Association="GestaoPedidosNotificacaoDBModel.FK_Utilizador_Role" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

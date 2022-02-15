@@ -64,6 +64,7 @@
     <EntitySetMapping Name="Utilizadors">
       <EntityTypeMapping TypeName="GestaoPedidosNotificacaoDBModel.Utilizador">
         <MappingFragment StoreEntitySet="Utilizador">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
           <ScalarProperty Name="DataModificacao" ColumnName="DataModificacao" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
           <ScalarProperty Name="Funcao" ColumnName="Funcao" />
@@ -83,6 +84,14 @@
           <ScalarProperty Name="DataEntidade" ColumnName="DataEntidade" />
           <ScalarProperty Name="EntidadeTipoId" ColumnName="EntidadeTipoId" />
           <ScalarProperty Name="Denoninacao" ColumnName="Denoninacao" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="GestaoPedidosNotificacaoDBModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
